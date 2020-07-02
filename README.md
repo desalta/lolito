@@ -1,6 +1,6 @@
 # Lolito
 
-![Lolito](https://i.ibb.co/6sny9gm/lolito.png)
+![Lolito](https://i.imgur.com/HO8rtFM.png)
 
 Lolito es un programa gratuito que tiene el fin de proveer herramientas adicionales para jugar a League of Legend.
 Cuenta con las siguientes aplicaciones:
