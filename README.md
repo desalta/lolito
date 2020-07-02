@@ -2,16 +2,17 @@
 
 ![Lolito](https://i.imgur.com/HO8rtFM.png)
 
-Lolito es un programa gratuito que tiene el fin de proveer herramientas adicionales para jugar a League of Legend.
+Lolito es un programa portable y gratuito que tiene el fin de proveer herramientas adicionales para jugar a League of Legend.
 Cuenta con las siguientes aplicaciones:
 
 * Runero
+* Infochamp (proximamente)
 * Batallas (proximamente)
 
 ## Runero
-Esta caracteristica tiene dos funcionalidades principales
+Esta función tiene dos funcionalidades principales
 
-  - Proveer una herramienta para almacenar paginas de runas infinitas
+  - Proveer una herramienta para almacenar paginas de runas (infinitas)
   - Proveer un mecanismo para que se puedan aplicar las runas automaticamente en el juego
 
 Acciones:
@@ -24,18 +25,23 @@ Consideraciones:
 
 ### Instalación
 
-El programa esta desarrollado en python y requiere algunas librerías adicionales.
+El programa esta desarrollado en python y requiere algunas librerías adicionales. A continuación la instalación de las mismas.
 
 **Python**
  - En la carpeta del programa se encuentra el archivo ***instalador-python.exe***, que hay que instalar. 
- `Importante! A la hora de instalar hay que tildar la opción que dice "Include in PATH"`
+ `Importante! A la hora de instalar hay que tildar la opción que dice "Add Python 3.8 to PATH"`
  - En caso de tener python instalado esta opción no es necesaria. Y también se puede descargar e instalar python desde su página oficial.
+ 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](https://i.imgur.com/842AtYt.png)
 
 **Dependencias**
 - Para instalar las dependencias restantes, hay que ejecutar el archivo ***install.bat*** que se encuentra en la carpeta del programa.
 
+**Link en el Escritorio**
+- Para genera un link de acceso directo en el escritorio ejecutar ***link.bat***. Tener en cuenta si que se cambia la ubicación de la carpeta, tendrían que volver a generar un nuevo link.
+
 ### Ejecución
 
-Para ejecutar el programa hay ejecutar el archivo ***exe.bat***.
-Además existe un acceso directo llamado ***Lolito***, el cual se puede copiar al escritorio para tenerlo cerca.
+Simplemente, iniciar desde el link ***Lolito*** que aparece en el escritorio.
+También se puede iniciar el programa desde el archivo ***run.bat***.
 
