@@ -18,7 +18,7 @@ Esta función tiene dos funcionalidades principales
 [![Watch the video](https://i.imgur.com/6jRJNK2.jpg)](https://vimeo.com/435069489)
 
 Acciones:
-  - **Aplicar**: una vez selecionada una página de runa, saldrá una ventana emergente. Al clickear en "OK", nos dará 2 segundos para posicionar el mouse sobre el ícono de seleccion de runas. Pasado este tiempo, comenzará a seleccionar las runas configuradas en el juego.
+  - **Aplicar**: una vez selecionada una página de runa, saldrá una ventana emergente. Al clickear en "Aceptar", nos dará 2 segundos para posicionar el mouse sobre el ícono de seleccion de runas. Pasado este tiempo, comenzará a seleccionar las runas configuradas en el juego.
   - **Borrar**: una vez seleccionada una página de runa, borrar elminará la página de la base de datos.
   - **Guardar**: si el nombre de la pagina de runa ya existe, actualizará la página. Si la página no existe, creará una nueva
 
