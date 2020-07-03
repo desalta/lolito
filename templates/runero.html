@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css') }}">
+    <title>FlaskApp</title>
+</head>
+
+<body class="runero" id="runero">
+
+
+    <div class="navbar0">
+        <div class="container-fluid">
+            <div class="logo">
+                <a href="/"><img src="/static/img/lolito.png" alt="logo"></a>
+            </div>
+
+            <div class="links">
+                <a class="active" href="/runero">Runero</a>
+                <!-- <a href="/batalla">Batalla</a> -->
+                <!-- <a href="#Datos">Datos</a> -->
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid runasel">
+        <div class="row titulo">
+            <h5>Páginas de Runas</h5>
+        </div>
+        <div class="row">
+            <div class="col selector">
+                <select id="seleccion" class="form-select" aria-label="Default select example"
+                    onchange="mostrarPagina()">
+                    <option value=""></option>
+                    {% for runa in runas %}
+                    <option value="{{runa['name']}}">{{runa['name']}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col accion">
+                <button type="button" onclick="actionApply()" class="btn btn-success bt-sm">Aplicar</button>
+                <button type="button" onclick="actionDelete()" class="btn btn-danger bt-sm">Borrar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid runasedit">
+
+        <div class="row">
+            <div class="col col-6">
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input type="text" class="form-control" id="name" name="name" value="" onchange="setName()">
+                    <small class="form-text text-danger"></small>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <!-- Ruta Primaria -->
+            <div class="col rut1">
+
+                <!-- Ruta primaria - Rutas -->
+                <div class="row runas" id="prim_runa">
+                    <img class='sel' src="/static/img/runas/NN.png">
+                    <img class='opt' onclick="selRutaPrim('PRE')" src="/static/img/runas/R_PRE.webp">
+                    <img class='opt' onclick="selRutaPrim('DOM')" src="/static/img/runas/R_DOM.webp">
+                    <img class='opt' onclick="selRutaPrim('BRU')" src="/static/img/runas/R_BRU.webp">
+                    <img class='opt' onclick="selRutaPrim('VAL')" src="/static/img/runas/R_VAL.webp">
+                    <img class='opt' onclick="selRutaPrim('INS')" src="/static/img/runas/R_INS.webp">
+                </div>
+
+                <!-- Ruta primaria - Runa Clave -->
+                <div class="row runas" id="prim_clave">
+                    <img class='sel' src="/static/img/runas/NN.png">
+                </div>
+
+                <!-- Ruta primaria - Ranura 1 -->
+                <div class="row runas" id='prim_ran1'>
+                    <img class='sel' src="/static/img/runas/NN.png">
+                </div>
+
+                <!-- Ruta primaria - Ranura 2 -->
+                <div class="row runas" id='prim_ran2'>
+                    <img class='sel' src="/static/img/runas/NN.png">
+                </div>
+
+                <!-- Ruta primaria - Ranura 3 -->
+                <div class="row runas" id='prim_ran3'>
+                    <img class='sel' src="/static/img/runas/NN.png">
+                </div>
+
+            </div>
+
+            <div class="col">
+
+                <!-- Ruta Secundaria -->
+                <div class="col rut2">
+
+                    <!-- Ruta secundaria - Rutas -->
+                    <div class="row runas" id='sec_runa'>
+                        <img class='sel' src="/static/img/runas/NN.png">
+                        <img class='opt' onclick="selRutaSec('PRE')" src="/static/img/runas/R_PRE.webp">
+                        <img class='opt' onclick="selRutaSec('DOM')" src="/static/img/runas/R_DOM.webp">
+                        <img class='opt' onclick="selRutaSec('BRU')" src="/static/img/runas/R_BRU.webp">
+                        <img class='opt' onclick="selRutaSec('VAL')" src="/static/img/runas/R_VAL.webp">
+                        <img class='opt' onclick="selRutaSec('INS')" src="/static/img/runas/R_INS.webp">
+                    </div>
+
+
+                    <!-- Ruta secundaria - Runas -->
+                    <div class="row runas">
+
+                        <!-- Runa seleccionada - Ranura1 y 2 -->
+                        <div class="col runasSel">
+                            <div class="row" id='sec_ran1'>
+                                <img class='sel' src="/static/img/runas/NN.png">
+                            </div>
+                            <div class="row" id='sec_ran2'>
+                                <img class='sel' src="/static/img/runas/NN.png">
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <!-- Ruta secundaria - Ranura 1 -->
+                            <div class="row runasOpt" id='sec_ran1_opt'>
+                            </div>
+
+                            <!-- Ruta secundaria - Ranura 2 -->
+                            <div class="row runasOpt" id='sec_ran2_opt'>
+                            </div>
+
+                            <!-- Ruta secundaria - Ranura 3 -->
+                            <div class="row runasOpt" id='sec_ran3_opt'>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Fragmentos -->
+                <div class="col frag">
+
+                    <!-- Ruta secundaria - Rutas -->
+                    <div class="row runas" id='frag1'>
+                        <img class='sel' src="/static/img/runas/NN.png">
+                        <img class='opt' onclick="selRuna('frag1','FRAG1','OP1')" src="/static/img/runas/F1O1.png">
+                        <img class='opt' onclick="selRuna('frag1','FRAG1','OP2')" src="/static/img/runas/F1O2.png">
+                        <img class='opt' onclick="selRuna('frag1','FRAG1','OP3')" src="/static/img/runas/F1O3.png">
+                    </div>
+
+                    <!-- Ruta secundaria - Ranura 1 -->
+                    <div class="row runas" id='frag2'>
+                        <img class='sel' src="/static/img/runas/NN.png">
+                        <img class='opt' onclick="selRuna('frag2','FRAG2','OP1')" src="/static/img/runas/F2O1.png">
+                        <img class='opt' onclick="selRuna('frag2','FRAG2','OP2')" src="/static/img/runas/F2O2.png">
+                        <img class='opt' onclick="selRuna('frag2','FRAG2','OP3')" src="/static/img/runas/F2O3.png">
+                    </div>
+
+                    <!-- Ruta secundaria - Ranura 2 -->
+                    <div class="row runas" id='frag3'>
+                        <img class='sel' src="/static/img/runas/NN.png">
+                        <img class='opt' onclick="selRuna('frag3','FRAG3','OP1')" src="/static/img/runas/F3O1.png">
+                        <img class='opt' onclick="selRuna('frag3','FRAG3','OP2')" src="/static/img/runas/F3O2.png">
+                        <img class='opt' onclick="selRuna('frag3','FRAG3','OP3')" src="/static/img/runas/F3O3.png">
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col accion">
+            <button type="button" onclick="actionSave()" class="btn btn-success bt-sm">Guardar</button>
+        </div>
+
+    </div>
+
+
+
+    <script src="{{ url_for('static',filename='js/jquery-3.4.1.min.js') }}"></script>
+    <!-- <script src="{{ url_for('static',filename='js/alive.js') }}"></script> -->
+
+    <script>
+        var runasDB = new Map();
+        {% for runa in runas %}
+        var data = {
+            'name': "{{runa['name']}}",
+            'prim_runa': "{{runa['prim_runa']}}",
+            'prim_clave': "{{runa['prim_clave']}}",
+            'prim_ran1': "{{runa['prim_ran1']}}",
+            'prim_ran2': "{{runa['prim_ran2']}}",
+            'prim_ran3': "{{runa['prim_ran3']}}",
+            'sec_runa': "{{runa['sec_runa']}}",
+            'sec_ran1': "{{runa['sec_ran1']}}",
+            'sec_ran2': "{{runa['sec_ran2']}}",
+            'frag1': "{{runa['frag1']}}",
+            'frag2': "{{runa['frag2']}}",
+            'frag3': "{{runa['frag3']}}",
+        }
+        runasDB.set("{{runa['name']}}", data);
+        {% endfor %}
+
+        var runaE = {
+            'name': "", 'prim_runa': "", 'prim_clave': "", 'prim_ran1': "", 'prim_ran2': "", 'prim_ran3': "",
+            'sec_runa': "", 'sec_ran1': "", 'sec_ran2': "", 'frag1': "", 'frag2': "", 'frag3': ""
+        }
+    </script>
+
+    <script>
+
+        var orden = {
+            'PRE': {
+                'RC': ['EO', 'CL', 'SM', 'CO'],
+                'R1': ['S', 'T', 'CP'],
+                'R2': ['LC', 'LT', 'LL'],
+                'R3': ['GG', 'C', 'UB']
+            },
+            'DOM': {
+                'RC': ['E', 'D', 'CO', 'LE'],
+                'R1': ['GB', 'SS', 'IS'],
+                'R2': ['CZ', 'PF', 'CDO'],
+                'R3': ['CV', 'CIN', 'CIM', 'CD']
+            },
+            'BRU': {
+                'RC': ['IA', 'CAR', 'FV'],
+                'R1': ['OA', 'AFM', 'CN'],
+                'R2': ['T', 'C', 'CAB'],
+                'R3': ['Q', 'CSA', 'TC']
+            },
+            'VAL': {
+                'RC': ['AP', 'REP', 'G'],
+                'R1': ['D', 'FV', 'GE'],
+                'R2': ['A', 'SA', 'CO'],
+                'R3': ['CE', 'REV', 'I'],
+            },
+            'INS': {
+                'RC': ['AG', 'LHA', 'RU'],
+                'R1': ['DH', 'CM', 'MO'],
+                'R2': ['MF', 'DS', 'EG'],
+                'R3': ['PC', 'VA', 'TDT'],
+            },
+        }
+
+        var runas = {
+            'PRE': {
+                '_': '/static/img/runas/R_PRE.webp',
+                'EO': '/static/img/runas/PRE_EO.png',
+                'CL': '/static/img/runas/PRE_CL.png',
+                'SM': '/static/img/runas/PRE_SM.png',
+                'CO': '/static/img/runas/PRE_CO.png',
+                'S': '/static/img/runas/PRE_S.png',
+                'T': '/static/img/runas/PRE_T.png',
+                'CP': '/static/img/runas/PRE_CP.png',
+                'LC': '/static/img/runas/PRE_LC.png',
+                'LT': '/static/img/runas/PRE_LT.png',
+                'LL': '/static/img/runas/PRE_LL.png',
+                'GG': '/static/img/runas/PRE_GG.png',
+                'C': '/static/img/runas/PRE_C.png',
+                'UB': '/static/img/runas/PRE_UB.png'
+            },
+
+            'DOM': {
+                '_': '/static/img/runas/R_DOM.webp',
+                'E': '/static/img/runas/DOM_E.png',
+                'D': '/static/img/runas/DOM_D.png',
+                'CO': '/static/img/runas/DOM_CO.png',
+                'LE': '/static/img/runas/DOM_LE.png',
+                'GB': '/static/img/runas/DOM_GB.png',
+                'SS': '/static/img/runas/DOM_SS.png',
+                'IS': '/static/img/runas/DOM_IS.png',
+                'CZ': '/static/img/runas/DOM_CZ.png',
+                'PF': '/static/img/runas/DOM_PF.png',
+                'CDO': '/static/img/runas/DOM_CDO.png',
+                'CV': '/static/img/runas/DOM_CV.png',
+                'CIN': '/static/img/runas/DOM_CIN.png',
+                'CIM': '/static/img/runas/DOM_CIM.png',
+                'CD': '/static/img/runas/DOM_CD.png',
+            },
+
+            'BRU': {
+                '_': '/static/img/runas/R_BRU.webp',
+                'IA': '/static/img/runas/BRU_IA.png',
+                'CAR': '/static/img/runas/BRU_CAR.png',
+                'FV': '/static/img/runas/BRU_FV.png',
+                'OA': '/static/img/runas/BRU_OA.png',
+                'AFM': '/static/img/runas/BRU_AFM.png',
+                'CN': '/static/img/runas/BRU_CN.png',
+                'T': '/static/img/runas/BRU_T.png',
+                'C': '/static/img/runas/BRU_C.png',
+                'CAB': '/static/img/runas/BRU_CAB.png',
+                'Q': '/static/img/runas/BRU_Q.png',
+                'CSA': '/static/img/runas/BRU_CSA.png',
+                'TC': '/static/img/runas/BRU_TC.png',
+            },
+
+            'VAL': {
+                '_': '/static/img/runas/R_VAL.webp',
+                'AP': '/static/img/runas/VAL_AP.png',
+                'REP': '/static/img/runas/VAL_REP.png',
+                'G': '/static/img/runas/VAL_G.png',
+                'D': '/static/img/runas/VAL_D.png',
+                'FV': '/static/img/runas/VAL_FV.png',
+                'GE': '/static/img/runas/VAL_GE.png',
+                'A': '/static/img/runas/VAL_A.png',
+                'SA': '/static/img/runas/VAL_SA.png',
+                'CO': '/static/img/runas/VAL_CO.png',
+                'CE': '/static/img/runas/VAL_CE.png',
+                'REV': '/static/img/runas/VAL_REV.png',
+                'I': '/static/img/runas/VAL_I.png',
+            },
+
+            'INS': {
+                '_': '/static/img/runas/R_INS.webp',
+                'AG': '/static/img/runas/INS_AG.png',
+                'LHA': '/static/img/runas/INS_LHA.png',
+                'RU': '/static/img/runas/INS_RU.png',
+                'DH': '/static/img/runas/INS_DH.png',
+                'CM': '/static/img/runas/INS_CM.png',
+                'MO': '/static/img/runas/INS_MO.png',
+                'MF': '/static/img/runas/INS_MF.png',
+                'DS': '/static/img/runas/INS_DS.png',
+                'EG': '/static/img/runas/INS_EG.png',
+                'PC': '/static/img/runas/INS_PC.png',
+                'VA': '/static/img/runas/INS_VA.png',
+                'TDT': '/static/img/runas/INS_TDT.png',
+            },
+
+            'FRAG1': {
+                'OP1': '/static/img/runas/F1O1.png',
+                'OP2': '/static/img/runas/F1O2.png',
+                'OP3': '/static/img/runas/F1O3.png',
+            },
+
+            'FRAG2': {
+                'OP1': '/static/img/runas/F2O1.png',
+                'OP2': '/static/img/runas/F2O2.png',
+                'OP3': '/static/img/runas/F2O3.png',
+            },
+
+            'FRAG3': {
+                'OP1': '/static/img/runas/F3O1.png',
+                'OP2': '/static/img/runas/F3O2.png',
+                'OP3': '/static/img/runas/F3O3.png',
+            }
+        }
+
+    </script>
+
+    <script>
+
+        function selRutaSec(ruta) {
+            auxRunaSec = 1
+            $("#sec_ran1 .sel").attr("src", '/static/img/runas/NN.png');
+            $("#sec_ran2 .sel").attr("src", '/static/img/runas/NN.png');
+            selRuna('sec_runa', ruta, '_');
+            setRunas("sec", "sec_ran1_opt", 'R1', ruta);
+            setRunas("sec", "sec_ran2_opt", 'R2', ruta);
+            setRunas("sec", "sec_ran3_opt", 'R3', ruta);
+        }
+
+        function selRutaPrim(ruta) {
+            selRuna('prim_runa', ruta, '_');
+            setRunas("prim", "prim_clave", 'RC', ruta);
+            setRunas("prim", "prim_ran1", 'R1', ruta);
+            setRunas("prim", "prim_ran2", 'R2', ruta);
+            setRunas("prim", "prim_ran3", 'R3', ruta);
+        }
+
+        function setRunas(modo, slot, key, ruta) {
+            $("#" + slot + " .opt").remove()
+            var ord = orden[ruta][key]
+
+            for (i = 0; i < ord.length; i++) {
+                key = ord[i];
+                if (modo == "prim") {
+                    $("#" + slot + " .sel").attr("src", '/static/img/runas/NN.png');
+                    item = "<img class='opt' onclick='selRuna(\"" + slot + "\",\"" + ruta + "\",\"" + key + "\")' src='" + runas[ruta][key] + "'>";
+                    $("#" + slot).append(item);
+                } else {
+                    item = "<img class='opt' onclick='selRunaSec(\"" + ruta + "\",\"" + key + "\")' src='" + runas[ruta][key] + "'>";
+                    $("#" + slot).append(item);
+                }
+
+            }
+        }
+
+        function selRuna(slot, ruta, codigo) {
+            var url = runas[ruta][codigo]
+            $("#" + slot + " .sel").attr("src", url);
+            codigo = codigo == "_" ? ruta : codigo
+            runaE[slot] = codigo;
+        }
+
+        auxRunaSec = 1
+        function selRunaSec(ruta, codigo) {
+            var url = runas[ruta][codigo]
+            var slot = 'sec_ran' + auxRunaSec;
+            $("#" + slot + " .sel").attr("src", url);
+            codigo = codigo == "_" ? ruta : codigo
+            runaE[slot] = codigo;
+            auxRunaSec = (auxRunaSec == 2 ? 1 : 2)
+        }
+
+        function setName(nombre) {
+            runaE['name'] = $("#name").val();
+        }
+
+        function mostrarPagina() {
+            key = $("#seleccion").val()
+            if (key == "") {
+                resetPagina()
+            } else {
+                runaE = jQuery.extend({}, runasDB.get(key));
+                $("#name").val(runaE.name);
+                rutaP = runaE.prim_runa
+                selRutaPrim(rutaP)
+                selRuna("prim_clave", rutaP, runaE.prim_clave);
+                selRuna("prim_ran1", rutaP, runaE.prim_ran1);
+                selRuna("prim_ran2", rutaP, runaE.prim_ran2);
+                selRuna("prim_ran3", rutaP, runaE.prim_ran3);
+                rutaS = runaE.sec_runa
+                auxRunaSec = 1
+                selRutaSec(rutaS)
+                selRunaSec(rutaS, runaE.sec_ran1);
+                selRunaSec(rutaS, runaE.sec_ran2);
+                selRuna('frag1', 'FRAG1', runaE.frag1);
+                selRuna('frag2', 'FRAG2', runaE.frag2);
+                selRuna('frag3', 'FRAG3', runaE.frag3);
+            }
+        }
+
+        function resetPagina() {
+            runaE = {
+                'name': "", 'prim_runa': "", 'prim_clave': "", 'prim_ran1': "", 'prim_ran2': "", 'prim_ran3': "",
+                'sec_runa': "", 'sec_ran1': "", 'sec_ran2': "", 'frag1': "", 'frag2': "", 'frag3': ""
+            }
+
+            $("#prim_runa .sel").attr("src", '/static/img/runas/NN.png');
+            $("#prim_clave .sel").attr("src", '/static/img/runas/NN.png');
+            $("#prim_ran1 .sel").attr("src", '/static/img/runas/NN.png');
+            $("#prim_ran2 .sel").attr("src", '/static/img/runas/NN.png');
+            $("#prim_ran3 .sel").attr("src", '/static/img/runas/NN.png');
+            $("#sec_runa .sel").attr("src", '/static/img/runas/NN.png');
+            $("#sec_ran1 .sel").attr("src", '/static/img/runas/NN.png');
+            $("#sec_ran1 .sel").attr("src", '/static/img/runas/NN.png');
+            $("#sec_ran2 .sel").attr("src", '/static/img/runas/NN.png');
+            $("#frag1 .sel").attr("src", '/static/img/runas/NN.png');
+            $("#frag2 .sel").attr("src", '/static/img/runas/NN.png');
+            $("#frag3 .sel").attr("src", '/static/img/runas/NN.png');
+
+            $("#prim_clave .opt").remove()
+            $("#prim_ran1 .opt").remove()
+            $("#prim_ran2 .opt").remove()
+            $("#prim_ran3 .opt").remove()
+            $("#sec_ran1_opt .opt").remove()
+            $("#sec_ran2_opt .opt").remove()
+            $("#sec_ran3_opt .opt").remove()
+
+            $("#name").val('');
+        }
+
+    </script>
+
+    <script>
+
+        function actionSave() {
+            if (validar(runaE) == true) {
+                $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    url: "/runero/edit",
+                    data: JSON.stringify(runaE),
+                    complete: function (data) {
+                        location.reload()
+                    }
+                });
+            } else {
+                alert('Debe tener nombre y todas las runas completas')
+            }
+        }
+
+        function actionDelete() {
+            if (runaE.name != "") {
+                $.ajax({
+                    type: "DELETE",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    url: "/runero/edit",
+                    data: JSON.stringify(runaE),
+                    complete: function (data) {
+                        location.reload()
+                    }
+                });
+            } else {
+                alert('Debe seleccionar un pagina de ruta para eliminar')
+            }
+        }
+
+        function actionApply() {
+            if (runaE.name != "") {
+                $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    url: "/runero/apply",
+                    data: JSON.stringify(runaE)
+                });
+            } else {
+                alert('Debe seleccionar un pagina de ruta para aplicar')
+            }
+        }
+
+        function validar(datos) {
+            return (datos.name != "" &&
+                datos.prim_runa != "" &&
+                datos.prim_clave != "" &&
+                datos.prim_ran1 != "" &&
+                datos.prim_ran2 != "" &&
+                datos.prim_ran3 != "" &&
+                datos.sec_runa != "" &&
+                datos.sec_ran1 != "" &&
+                datos.sec_ran2 != "" &&
+                datos.frag1 != "" &&
+                datos.frag2 != "" &&
+                datos.frag3 != "")
+        }
+
+    </script>
+
+</body>
+
+</html>

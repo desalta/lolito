@@ -1,0 +1,170 @@
+/* Custom CSS */
+
+html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+/************************************************* INCIO */
+
+body.inicio {
+    background: url(/static/img/bg2.jpg) no-repeat center center fixed;
+    /* background-repeat: cover; */
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#inicio a>img{
+    height: 150px;
+    width: auto;    
+}
+
+/************************************************* NAVBAR */
+
+.navbar0{
+    height: 50px;
+    background-color: #333333;
+}
+
+.navbar0 .container-fluid{
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar0 .logo{
+    display: flex;
+    align-items: center;
+}
+
+.navbar0 .logo img{
+    height: 40px;
+    width: auto;
+    padding: 0 14px;
+}
+
+.navbar0 .links {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.navbar0 .links a{
+    text-decoration: none;
+    color: #d0d0d0;
+    text-transform: uppercase;
+    line-height: 50px;
+    padding: 0 14px;
+    font-size: 15px;
+    letter-spacing: 2px;
+}
+
+.navbar0 .links a:hover {
+    background-color: rgba(128, 128, 128, 0.9)
+}
+
+/************************************************* BUTTON */
+
+a.button{
+    height: 20px;
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+a:hover {
+    background-color: #555;
+    cursor: pointer;
+}
+  
+a:active {
+    background-color: black;
+}
+
+a:visited {
+    background-color: #ccc;
+}
+
+/************************************************* RUNERO */
+
+body.runero {
+    background: url(/static/img/bg1.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+#runero .runasel{
+    padding-top: 30px;
+}
+
+#runero .runasel .titulo{
+    padding-bottom: 10px;
+}
+
+#runero .runasedit{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+#runero .form-group{
+    margin: 10px 0;
+}
+
+#runero .container2{
+    margin: 10px 0;
+}
+
+/************* Rutas */
+
+#runero {
+    color: white;
+}
+
+#runero .runas{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    /* justify-content: space-between; */
+    padding: 12px;
+}
+
+#runero .runas img{
+    height: 40px;
+    width: 40px;
+    padding: 0;
+}
+
+#runero .frag img{
+    height: 30px;
+    width: 30px;
+    padding: 0;
+}
+
+#runero .sel{
+    margin-right: 5px;
+}
+
+#runero .opt{
+    margin-left: 5px;
+}
+
+#runero .runasSel{
+    max-width: 50px;
+    padding: 0;
+    margin-right: 5px;
+}
+
+#runero .runasOpt{
+    margin-bottom: 12px;
+}
+
+#runero .runasSel .row{
+    padding: 0;
+    margin-left: 0; 
+    margin-bottom: 24px;
+}
