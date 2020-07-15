@@ -1,6 +1,6 @@
 import pyautogui
 import time
-import mapeo
+from . import mapeo
 
 TEST = ""
 #TEST = 'acciones'

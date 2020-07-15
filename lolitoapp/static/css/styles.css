@@ -168,3 +168,135 @@ body.runero {
     margin-left: 0; 
     margin-bottom: 24px;
 }
+
+/************************************************* WIKI */
+
+body.wiki {
+    background: url(/static/img/bg1.jpg) no-repeat center center fixed;
+    background-size: cover;
+    color : white;
+}
+
+#wiki a.nav-link{
+    color: white;
+}
+
+#wiki a.nav-link.active{
+    color: #495057;
+}
+
+#wiki .nav-link:hover{
+    background-color: #555;
+}
+
+#wiki .nav-link.active:hover{
+    background-color: white;
+}
+
+#wiki .champsel{
+    margin : 20px 0;
+}
+
+#wiki .wiki_content{
+    margin : 20px 0;
+}
+
+#wiki .row{
+    padding : 20px 0;
+}
+
+#wiki .damage_item{
+    padding-right: 20px;
+}
+
+#wiki .referencia{
+    margin-top: 20px;
+    font-style: italic;
+    text-align: center;
+}
+
+#wiki .seccion3 h5{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 35px;
+}
+
+#wiki .seccion3 h6{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+#wiki h6.skills{
+    margin-top: 50px;
+}
+
+#wiki .seccion3 .wr{
+    font-size: small;
+    font-style: italic;
+}
+
+#wiki .seccion3 .img_list{
+    text-align: center;
+}
+
+#wiki .seccion3 img{
+    height: auto;
+    width: 40px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+
+#wiki .fraglist{
+    margin-bottom: 20px;
+}
+
+#wiki .fragmento{
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+    background: #131313;
+    border: 1.5px solid #666;
+    text-align: center;
+    margin-left: 10px;
+}
+
+#wiki .fragmento img{
+    height: 15px;
+    width: 15px;
+    padding: 0;
+    margin: 0;
+}
+
+/* ************************* Tabla Stats*/
+
+#wiki table.stats{
+    color : white;
+}
+
+#wiki table.stats td{
+    padding: 5px;
+}
+
+#wiki table.stats th{
+    padding: 5px;
+    background-color: #c38c45;
+}
+
+#wiki table.stats tr:hover {
+    background-color: #c38c45;
+}
+
+/* ************************* Tabla Skills*/
+
+#wiki table.skills{
+    color : white;
+    width: 100%;
+}
+
+
+#wiki table.skills th, #wiki table.skills td{
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}

@@ -1,4 +1,4 @@
-cd "%~dp0" & ^
+cd "%~dp0\.." & ^
 env\Scripts\activate & ^
 start "" /B view.py & ^
-flask run
+start "" /B flask run

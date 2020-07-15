@@ -6,28 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
-        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css') }}">
     <title>FlaskApp</title>
 </head>
 
 <body class="runero" id="runero">
 
-
-    <div class="navbar0">
-        <div class="container-fluid">
-            <div class="logo">
-                <a href="/"><img src="/static/img/lolito.png" alt="logo"></a>
-            </div>
-
-            <div class="links">
-                <a class="active" href="/runero">Runero</a>
-                <!-- <a href="/batalla">Batalla</a> -->
-                <!-- <a href="#Datos">Datos</a> -->
-            </div>
-        </div>
-    </div>
+    {% from "macros.html" import navbar %}
+    {{ navbar() }}
 
     <div class="container-fluid runasel">
         <div class="row titulo">
@@ -186,9 +173,10 @@
 
 
 
-    <script src="{{ url_for('static',filename='js/jquery-3.4.1.min.js') }}"></script>
-    <!-- <script src="{{ url_for('static',filename='js/alive.js') }}"></script> -->
 
+
+
+    <script src="{{ url_for('static',filename='js/jquery-3.4.1.min.js') }}"></script>
     <script>
         var runasDB = new Map();
         {% for runa in runas %}
@@ -214,7 +202,6 @@
             'sec_runa': "", 'sec_ran1': "", 'sec_ran2': "", 'frag1': "", 'frag2': "", 'frag3': ""
         }
     </script>
-
     <script>
 
         var orden = {
@@ -354,7 +341,6 @@
         }
 
     </script>
-
     <script>
 
         function selRutaSec(ruta) {
@@ -469,7 +455,6 @@
         }
 
     </script>
-
     <script>
 
         function actionSave() {

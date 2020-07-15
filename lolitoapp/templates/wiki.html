@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css') }}">
+    <title>Lolito</title>
+</head>
+
+<body class="wiki" id="wiki">
+
+    {% from "macros.html" import navbar %}
+    {{ navbar() }}
+
+    <div class="container-fluid champsel">
+        <div class="row">
+            <div class="col">
+                <select id="seleccion" class="form-select" onchange="actionShowChamp()">
+                    <option value=""></option>
+                    {% for champ in champs %}
+                    {% for pos in champ['pos'].lower().split(";") %}
+                    <option value="{{champ['name']}};{{pos}}">{{champ['name']}} > {{pos}}</option>
+                    {% endfor %}
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid wiki_content">
+        {% if data %}
+        <!-- Tabs -->
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="stats-tab" data-toggle="tab" href="#stats" role="tab"
+                    aria-controls="stats" aria-selected="true">Estadisticas</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="builds-tab" data-toggle="tab" href="#builds" role="tab" aria-controls="builds"
+                    aria-selected="false">Builds</a>
+            </li>
+        </ul>
+
+        <!-- Data -->
+        <div class="tab-content" id="tabContent">
+
+            <!-- ESTADISTICAS -->
+            <div class="tab-pane fade show active" id="stats" role="tabpanel" aria-labelledby="stats-tab">
+
+                <!-- Primera Seccion -->
+                <div class="row seccion1">
+                    <div class="col-3">
+                        <img src="{{data['champ']['img']}}">
+                    </div>
+                    <div class="col col-9">
+                        <h4>{{data['champ']['name']}}  {{data['champ']['role']}}</h4>
+                        <p>
+                            <span>Uso del rol: {{data['statics']['role_rate']}}</span><br>
+                            <span>Distribución de daño</span><br>
+                            {% set lista = data['statics']['damage_composition'].split(';') %}
+                            {% for item in lista %}
+                                <span class="damage_item">{{ item }}</span>
+                            {% endfor %}
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Segunda Seccion -->
+                <div class="row seccion2">
+                    <div class="col-8 offset-3">
+                        <table class="table stats">
+                            <thead>
+                                <tr>
+                                    <th>Análisis</th>
+                                    <th>Promedio</th>
+                                    <th>Posición</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    {% set aux = data['statics']['win_rate'].split(';') %}
+                                    <td>Triunfos</th>
+                                    <td>{{aux[0]}}</th>
+                                    <td>{{aux[1]}}</th>
+                                </tr>
+                                <tr>
+                                    {% set aux = data['statics']['play_rate'].split(';') %}
+                                    <td>Campeón Elegido</th>
+                                    <td>{{aux[0]}}</th>
+                                    <td>{{aux[1]}}</th>
+                                </tr>
+                                <tr>
+                                    {% set aux = data['statics']['ban_rate'].split(';') %}
+                                    <td>Campeón Baneado</th>
+                                    <td>{{aux[0]}}</th>
+                                    <td>{{aux[1]}}</th>
+                                </tr>
+                                <tr>
+                                    {% set aux = data['statics']['pagp'].split(';') %}
+                                    <td>Partidas jugadas<br>por usuario (prom)</th>
+                                    <td>{{aux[0]}}</th>
+                                    <td>{{aux[1]}}</th>
+                                </tr>
+                                <tr>
+                                    {% set aux = data['statics']['gold_earned'].split(';') %}
+                                    <td>Oro Ganado</th>
+                                    <td>{{aux[0]}}</th>
+                                    <td>{{aux[1]}}</th>
+                                </tr>
+                                <tr>
+                                    {% set aux = data['statics']['kills'].split(';') %}
+                                    <td>Kills logradas</th>
+                                    <td>{{aux[0]}}</th>
+                                    <td>{{aux[1]}}</th>
+                                </tr>
+                                <tr>
+                                    {% set aux = data['statics']['deaths'].split(';') %}
+                                    <td>Muertes sufridas</th>
+                                    <td>{{aux[0]}}</th>
+                                    <td>{{aux[1]}}</th>
+                                </tr>
+                                <tr>
+                                    {% set aux = data['statics']['assists'].split(';') %}
+                                    <td>Asistencias</th>
+                                    <td>{{aux[0]}}</th>
+                                    <td>{{aux[1]}}</th>
+                                </tr>
+                                <tr>
+                                    {% set aux = data['statics']['damage_dealt'].split(';') %}
+                                    <td>Daño realizado</th>
+                                    <td>{{aux[0]}}</th>
+                                    <td>{{aux[1]}}</th>
+                                </tr>
+                                <tr>
+                                    {% set aux = data['statics']['damage_taken'].split(';') %}
+                                    <td>Daño sufrido</th>
+                                    <td>{{aux[0]}}</th>
+                                    <td>{{aux[1]}}</th>
+                                </tr>
+                                <tr>
+                                    {% set aux = data['statics']['minions_killed'].split(';') %}
+                                    <td>Minions muertos</th>
+                                    <td>{{aux[0]}}</th>
+                                    <td>{{aux[1]}}</th>
+                                </tr>
+                                <tr>
+                                    {% set aux = data['statics']['place'].split(';') %}
+                                    <td>Posición General</th>
+                                    <td></th>
+                                    <td>{{aux[0]}}</th>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                        <p class="referencia"><b>Posición</b>: Comparación del anaálisis respecto de otros campeones en ese mismo rol.</p>
+                    </div>
+                </div>
+                
+
+            </div>
+
+            <!-- BUILDS -->
+            <div class="tab-pane fade" id="builds" role="tabpanel" aria-labelledby="builds-tab">
+                
+                <!-- Tercera Seccion de Builds -->
+                <div class="row seccion3">
+
+                    <!-- Frecuentes -->
+                    <div class="col">
+                        {% set build = data['buildF'] %}
+                        <h5>Mas Frecuente</h5>
+
+                        {% set aux = build['summoners'] %}
+                        <h6>Hechizos de Invocador<span class="wr"> ({{aux['wr']}})</span></h6>
+                        <div class="img_list">{% for item in aux['items'] %}<img src="{{item['img']}}">{% endfor %}</div>
+
+                        {% set aux = build['trinket'] %}
+                        <h6>Baratija <span class="wr"> ({{aux['wr']}})</span></h6>
+                        <div class="img_list"><img src="{{aux['img']}}"></div>
+
+                        {% set aux = build['start_build'] %}
+                        <h6>Build Inicial <span class="wr"> ({{aux['wr']}})</span></h6>
+                        <div class="img_list">{% for item in aux['items'] %}<img src="{{item['img']}}">{% endfor %}</div>
+
+                        {% set aux = build['full_build'] %}
+                        <h6>Build Completa <span class="wr"> ({{aux['wr']}})</span></h6>
+                        <div class="img_list">{% for item in aux['items'] %}<img src="{{item['img']}}">{% endfor %}</div>                       
+
+                        {% set aux = build['runes'] %}
+                        <h6>Runas <span class="wr"> ({{aux['wr']}})</span></h6>
+                        <div class="img_list">{% for item in aux['items'][0:5] %}<img src="{{item['img']}}">{% endfor %}</div>
+                        <div class="img_list">
+                            {% for item in aux['items'][5:8] %}<img src="{{item['img']}}">{% endfor %}
+                            <div class="fraglist">{% for item in aux['items'][8:] %}<span class="fragmento"><img src="{{item['img']}}"></span>{% endfor %}</div>
+                        </div>                        
+
+                        {% set aux = build['skill'] %}
+                        <h6 class="skills">Orden de Habilidad <span class="wr"> ({{aux['wr']}})</span></h6>
+                        <table class="skills">
+                            <thead>
+                                <tr>{% for item in aux['data'][0:18] %}<th>{{item}}</th>{% endfor %}</tr>
+                            </thead>
+                            <tbody>
+                                <tr>{% for item in aux['data'][18:36] %}<td>{{item}}</td>{% endfor %}</tr>
+                                <tr>{% for item in aux['data'][36:54] %}<td>{{item}}</td>{% endfor %}</tr>
+                                <tr>{% for item in aux['data'][54:72] %}<td>{{item}}</td>{% endfor %}</tr>
+                                <tr>{% for item in aux['data'][72:90] %}<td>{{item}}</td>{% endfor %}</tr>
+                            </tbody>
+                        </table>
+                        
+
+                    </div>
+
+                    <!-- Mayor Triunfo -->
+                    <div class="col">
+                        {% set build = data['buildH'] %}
+                        <h5>Mayor Triunfo</h5>
+
+                        {% set aux = build['summoners'] %}
+                        <h6>Hechizos de Invocador<span class="wr"> ({{aux['wr']}})</span></h6>
+                        <div class="img_list">{% for item in aux['items'] %}<img src="{{item['img']}}">{% endfor %}</div>
+
+                        {% set aux = build['trinket'] %}
+                        <h6>Baratija <span class="wr"> ({{aux['wr']}})</span></h6>
+                        <div class="img_list"><img src="{{aux['img']}}"></div>
+
+                        {% set aux = build['start_build'] %}
+                        <h6>Build Inicial <span class="wr"> ({{aux['wr']}})</span></h6>
+                        <div class="img_list">{% for item in aux['items'] %}<img src="{{item['img']}}">{% endfor %}</div>
+
+                        {% set aux = build['full_build'] %}
+                        <h6>Build Completa <span class="wr"> ({{aux['wr']}})</span></h6>
+                        <div class="img_list">{% for item in aux['items'] %}<img src="{{item['img']}}">{% endfor %}</div>                       
+
+                        {% set aux = build['runes'] %}
+                        <h6>Runas <span class="wr"> ({{aux['wr']}})</span></h6>
+                        <div class="img_list">{% for item in aux['items'][0:5] %}<img src="{{item['img']}}">{% endfor %}</div>
+                        <div class="img_list">
+                            {% for item in aux['items'][5:8] %}<img src="{{item['img']}}">{% endfor %}
+                            <div class="fraglist">{% for item in aux['items'][8:] %}<span class="fragmento"><img src="{{item['img']}}"></span>{% endfor %}</div>
+                        </div>                        
+
+                        {% set aux = build['skill'] %}
+                        <h6 class="skills">Orden de Habilidad <span class="wr"> ({{aux['wr']}})</span></h6>
+                        <table class="skills">
+                            <thead>
+                                <tr>{% for item in aux['data'][0:18] %}<th>{{item}}</th>{% endfor %}</tr>
+                            </thead>
+                            <tbody>
+                                <tr>{% for item in aux['data'][18:36] %}<td>{{item}}</td>{% endfor %}</tr>
+                                <tr>{% for item in aux['data'][36:54] %}<td>{{item}}</td>{% endfor %}</tr>
+                                <tr>{% for item in aux['data'][54:72] %}<td>{{item}}</td>{% endfor %}</tr>
+                                <tr>{% for item in aux['data'][72:90] %}<td>{{item}}</td>{% endfor %}</tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <p class="referencia">Se muestra el porcentaje de triunfos de cada conjunto elegido</p>
+
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+
+    <script src="{{ url_for('static',filename='js/jquery-3.4.1.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+
+    <script>
+
+        function actionShowChamp() {
+            var val = $("#seleccion").val().split(";")
+
+            var urlBase = window.location.origin;
+            var url = urlBase + "/wiki/" + val[0] + "/" + val[1]
+            window.location.href = url;
+        }
+
+    </script>
+
+</body>
+
+</html>
