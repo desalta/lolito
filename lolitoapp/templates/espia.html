@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="https://kit.fontawesome.com/980842fa38.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css') }}">
+    <title>Lolito</title>
+</head>
+
+<body class="espia" id="espia">
+
+    {% from "macros.html" import navbar %}
+    {{ navbar() }}
+
+    <div class="container-fluid">
+        <div class="row servers">
+            <div class="col">
+                <select id="seleccion" class="form-select">
+                    <option value=""></option>
+                    {% for server in servers %}
+                    <option value="{{server['code']}}">{{server['name']}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col">
+                <button type="button" onclick="actionBuscar()" class="btn btn-success bt-sm">Obtener Datos</button>
+            </div>
+        </div>
+    </div>
+
+    {% if error %}
+        <p class="h5" style="margin: 20px;"><i class="fas fa-exclamation-triangle"></i> {{error}}</p>
+    {% endif%}
+
+    <div class="container-fluid espia_content">
+        {% if data %}
+        <!-- Tabs -->
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="team1-tab" data-toggle="tab" href="#ORDER" role="tab" aria-controls="team1" aria-selected="true">Team 1</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="team2-tab" data-toggle="tab" href="#CHAOS" role="tab" aria-controls="team2" aria-selected="false">Team 2</a>
+            </li>
+        </ul>
+
+        <!-- Data -->
+        <div class="tab-content" id="tabContent">
+
+            {% for team in data %}
+
+            {% set teamId = loop.index %}
+            <!-- Variable que mostrar activo el primer panel -->
+            {% if teamId == 1 %}
+            {% set active = 'show active' %}
+            {% endif %}
+            
+            <!-- TEAM -->
+            <div class="tab-pane fade {{active}} team" id="{{team}}" role="tabpanel" aria-labelledby="team{{teamId}}-tab">
+
+                <!-- CHAMP -->
+                {% for champ in data[team] %}
+                {% set champId = loop.index %}
+
+                <!-- Variables -->
+                {% set league = champ['data']['league'] %}
+                {% set tags = champ['data']['tags'] %}
+                {% set avg = champ['data']['avg'] %}
+                {% set kda = champ['data']['kda'] %}
+                {% set champs = champ['data']['champs'] %}
+
+                <!-- info principal -->
+                <div class="champ">
+                    
+                    <div class="row">
+                        <!-- Columna Imagen -->
+                        <div class="col col-3 imagen">
+                            <img src="{{champ['champ_img']}}" data-toggle="collapse" href="#champ_mas-{{teamId}}_{{champId}}" role="button" aria-expanded="false" aria-controls="champ_mas-{{teamId}}_{{champId}}">
+                            <a class="btn btn-info btn-sm btn_more" data-toggle="collapse" href="#champ_mas-{{teamId}}_{{champId}}" role="button" aria-expanded="false" aria-controls="champ_mas-{{teamId}}_{{champId}}">▽</a>
+                        </div>
+
+                        <!-- Columna Info General -->
+                        <div class="col info">
+                            <h5>{{champ['champ']}} {{champ['pos']}} ({{champ['name']}})</h5>
+
+                            <h6>Normales + Ranked</h6>
+                            <p>
+                                <span><i class="fas fa-gamepad" data-toggle="tooltip" data-placement="left" title="Partidas Jugadas"></i> {{avg['normales']['plays']}}</span><br>
+                                <span><i class="fas fa-laugh-beam" data-toggle="tooltip" data-placement="left" title="Partidas Ganadas"></i> {{avg['normales']['wins']}}</span><br>
+                                <span><i class="fas fa-tired" data-toggle="tooltip" data-placement="left" title="Partidas Perdidas"></i> {{avg['normales']['loss']}}</span><br>
+                                <span><i class="fas fa-biohazard" data-toggle="tooltip" data-placement="left" title="Enemigos con que se Empareja"></i> {{champ['data']['league']['enemy_avg']['name']}}</span><br>
+                                <span><i class="fas fa-award" data-toggle="tooltip" data-placement="left" title="Promedio Kills/Muertes/Asistencias"></i> {{kda['normales']['kills']}}/{{kda['normales']['deaths']}}/{{kda['normales']['assists']}}</span><br>
+                            </p>
+
+                            
+                            {% for tag in tags %}
+                                <span class="tag {{tag['color']}}">{{tag['text']}}</span>
+                            {% endfor %}
+                        </div>
+
+                        <!-- Columna Info Ranked -->
+                        <div class="col info">
+                            {% if league['best_league'] | length > 0 %}
+                            <h6>Soloqueue</h6>
+                            
+                            <div class="row">
+                                <div class="col col-3">
+                                    <img class="rank" src="{{league['best_league']['img']}}">
+                                </div>
+                                <div class="col">
+                                    <p>
+                                        <span>{{league['best_league']['name']}}</span><br>
+                                        <span><i class="fas fa-gamepad" data-toggle="tooltip" data-placement="left" title="Partidas Jugadas"></i> {{avg['soloqueue']['plays']}}</span><br>
+                                        <span><i class="fas fa-laugh-beam" data-toggle="tooltip" data-placement="left" title="Partidas Ganadas"></i> {{avg['soloqueue']['wins']}}</span><br>
+                                        <span><i class="fas fa-tired" data-toggle="tooltip" data-placement="left" title="Partidas Perdidas"></i> {{avg['soloqueue']['loss']}}</span><br>
+                                        <span><i class="fas fa-award" data-toggle="tooltip" data-placement="left" title="Promedio Kills/Muertes/Asistencias"></i> {{kda['soloqueue']['kills']}}/{{kda['soloqueue']['deaths']}}/{{kda['soloqueue']['assists']}}</span><br>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            {% endif %}
+
+                            {% if league['other_league'] | length > 0 %}
+                            <h6>Flex</h6>
+                            <p>
+                                <span>{{league['other_league']['name']}}</span><br>
+                                <span><i class="fas fa-gamepad" data-toggle="tooltip" data-placement="left" title="Partidas Jugadas"></i> {{avg['flexible']['plays']}}</span><br>
+                                <span><i class="fas fa-laugh-beam" data-toggle="tooltip" data-placement="left" title="Partidas Ganadas"></i> {{avg['flexible']['wins']}}</span><br>
+                                <span><i class="fas fa-tired" data-toggle="tooltip" data-placement="left" title="Partidas Perdidas"></i> {{avg['flexible']['loss']}}</span><br>
+                                <span><i class="fas fa-award" data-toggle="tooltip" data-placement="left" title="Promedio Kills/Muertes/Asistencias"></i> {{kda['flexible']['kills']}}/{{kda['flexible']['deaths']}}/{{kda['flexible']['assists']}}</span><br>
+                            </p>
+                            {% endif %}
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <!-- info ver mas ... -->
+                <div class="collapse champ_mas" id="champ_mas-{{teamId}}_{{champId}}">
+                      
+                    <div class="row">
+                        <h5>Champs mas usados</h5>
+
+                        {% for key in champs %}
+                        {% if key != "ranked"%}
+
+                        <!-- Nommbre de la liga -->
+                        {% set league = key %}
+                        {% set lista = champs[key] %}
+                        {% if key == "normales"%}
+                        {% set league = "Ranked + Normales" %}
+                        {% endif %}
+
+                        <div class="col">
+                            <h6>{{ league[0]|upper}}{{league[1:]}}</h6>
+                            
+                            {% for item in lista %}
+                            <div class="row champ">
+                                
+                                <div class="col col-4">
+                                    <img class="champ" src="{{item['champ_name_img']}}">
+                                    <img class="champ level" src="{{item['champ_level_img']}}" data-toggle="tooltip" data-placement="bottom" title="Maestria {{item['champ_level']}}">
+                                </div>
+                                <div class="col">
+                                    <span>{{item['champ_name']}}</span><br>
+                                    <span><i class="fas fa-award" data-toggle="tooltip" data-placement="left" title="Promedio Kills/Muertes/Asistencias"></i> {{item['kda']['kills']}}/{{item['kda']['deaths']}}/{{item['kda']['assists']}}</span><br>
+                                    <span><i class="fas fa-chart-bar"  data-toggle="tooltip" data-placement="left" title="Cantidad de partidas Jugadas (Ganadas) "></i> {{item['plays']}} ({{item['wins']}})</span><br>
+                                </div>
+
+                            </div>
+                            {% endfor%}
+                            
+                        </div>
+
+                        {% endif %}
+                        {% endfor %}
+
+                    </div>
+
+                </div>
+                {% endfor %}
+
+            </div>
+
+            {% endfor %}
+        
+        </div>
+
+        {% endif %}
+    </div>
+
+
+    <script src="{{ url_for('static',filename='js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/jquery-3.4.1.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+
+    <script>
+        function actionBuscar() {
+            var val = $("#seleccion").val()
+
+            var urlBase = window.location.origin;
+            var url = urlBase + "/espia/" + val
+            window.location.href = url;
+        }
+
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+    </script>
+
+</body>
+
+</html>

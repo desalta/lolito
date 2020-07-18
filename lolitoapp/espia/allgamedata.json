@@ -1,0 +1,799 @@
+{
+	"activePlayer": {
+		"abilities": {
+			"E": {
+				"abilityLevel": 0,
+				"displayName": "Supercarga",
+				"id": "KaisaE",
+				"rawDescription": "GeneratedTip_Spell_KaisaE_Description",
+				"rawDisplayName": "GeneratedTip_Spell_KaisaE_DisplayName"
+			},
+			"Passive": {
+				"displayName": "Segunda Piel",
+				"id": "KaisaPassive",
+				"rawDescription": "GeneratedTip_Passive_KaisaPassive_Description",
+				"rawDisplayName": "GeneratedTip_Passive_KaisaPassive_DisplayName"
+			},
+			"Q": {
+				"abilityLevel": 0,
+				"displayName": "Lluvia de Icathia",
+				"id": "KaisaQ",
+				"rawDescription": "GeneratedTip_Spell_KaisaQ_Description",
+				"rawDisplayName": "GeneratedTip_Spell_KaisaQ_DisplayName"
+			},
+			"R": {
+				"abilityLevel": 0,
+				"displayName": "Instinto Asesino",
+				"id": "KaisaR",
+				"rawDescription": "GeneratedTip_Spell_KaisaR_Description",
+				"rawDisplayName": "GeneratedTip_Spell_KaisaR_DisplayName"
+			},
+			"W": {
+				"abilityLevel": 0,
+				"displayName": "Buscadora del Vacío",
+				"id": "KaisaW",
+				"rawDescription": "GeneratedTip_Spell_KaisaW_Description",
+				"rawDisplayName": "GeneratedTip_Spell_KaisaW_DisplayName"
+			}
+		},
+		"championStats": {
+			"abilityPower": 0.0,
+			"armor": 34.0,
+			"armorPenetrationFlat": 0.0,
+			"armorPenetrationPercent": 1.0,
+			"attackDamage": 64.4000015258789,
+			"attackRange": 525.0,
+			"attackSpeed": 0.7084000110626221,
+			"bonusArmorPenetrationPercent": 1.0,
+			"bonusMagicPenetrationPercent": 1.0,
+			"cooldownReduction": 0.0,
+			"critChance": 0.0,
+			"critDamage": 200.0,
+			"currentHealth": 600.0,
+			"healthRegenRate": 0.699999988079071,
+			"lifeSteal": 0.0,
+			"magicLethality": 0.0,
+			"magicPenetrationFlat": 0.0,
+			"magicPenetrationPercent": 1.0,
+			"magicResist": 30.0,
+			"maxHealth": 600.0,
+			"moveSpeed": 690.625,
+			"physicalLethality": 0.0,
+			"resourceMax": 344.8800048828125,
+			"resourceRegenRate": 1.6399999856948853,
+			"resourceType": "MANA",
+			"resourceValue": 344.8800048828125,
+			"spellVamp": 0.0,
+			"tenacity": 0.0
+		},
+		"currentGold": 500.0,
+		"fullRunes": {
+			"generalRunes": [
+				{
+					"displayName": "Lluvia de Espadas",
+					"id": 9923,
+					"rawDescription": "perk_tooltip_HailOfBlades",
+					"rawDisplayName": "perk_displayname_HailOfBlades"
+				},
+				{
+					"displayName": "Sabor a Sangre",
+					"id": 8139,
+					"rawDescription": "perk_tooltip_TasteOfBlood",
+					"rawDisplayName": "perk_displayname_TasteOfBlood"
+				},
+				{
+					"displayName": "Colección de Ojos",
+					"id": 8138,
+					"rawDescription": "perk_tooltip_EyeballCollection",
+					"rawDisplayName": "perk_displayname_EyeballCollection"
+				},
+				{
+					"displayName": "Cazador Voraz",
+					"id": 8135,
+					"rawDescription": "perk_tooltip_RavenousHunter",
+					"rawDisplayName": "perk_displayname_RavenousHunter"
+				},
+				{
+					"displayName": "Concentración Profunda",
+					"id": 8009,
+					"rawDescription": "perk_tooltip_PresenceOfMind",
+					"rawDisplayName": "perk_displayname_PresenceOfMind"
+				},
+				{
+					"displayName": "Leyenda: Linaje",
+					"id": 9103,
+					"rawDescription": "perk_tooltip_9103",
+					"rawDisplayName": "perk_displayname_9103"
+				}
+			],
+			"keystone": {
+				"displayName": "Lluvia de Espadas",
+				"id": 9923,
+				"rawDescription": "perk_tooltip_HailOfBlades",
+				"rawDisplayName": "perk_displayname_HailOfBlades"
+			},
+			"primaryRuneTree": {
+				"displayName": "Dominación",
+				"id": 8100,
+				"rawDescription": "perkstyle_tooltip_7200",
+				"rawDisplayName": "perkstyle_displayname_7200"
+			},
+			"secondaryRuneTree": {
+				"displayName": "Precisión",
+				"id": 8000,
+				"rawDescription": "perkstyle_tooltip_7201",
+				"rawDisplayName": "perkstyle_displayname_7201"
+			},
+			"statRunes": [
+				{
+					"id": 5005,
+					"rawDescription": "perk_tooltip_StatModAttackSpeed"
+				},
+				{
+					"id": 5008,
+					"rawDescription": "perk_tooltip_StatModAdaptive"
+				},
+				{
+					"id": 5002,
+					"rawDescription": "perk_tooltip_StatModArmor"
+				}
+			]
+		},
+		"level": 1,
+		"summonerName": "Altochori"
+	},
+	"allPlayers": [
+		{
+			"championName": "Irelia",
+			"isBot": false,
+			"isDead": false,
+			"items": [],
+			"level": 1,
+			"position": "TOP",
+			"rawChampionName": "game_character_displayname_Irelia",
+			"rawSkinName": "game_character_skin_displayname_Irelia_15",
+			"respawnTimer": 0.0,
+			"runes": {
+				"keystone": {
+					"displayName": "Conquistador",
+					"id": 8010,
+					"rawDescription": "perk_tooltip_Conqueror",
+					"rawDisplayName": "perk_displayname_Conqueror"
+				},
+				"primaryRuneTree": {
+					"displayName": "Precisión",
+					"id": 8000,
+					"rawDescription": "perkstyle_tooltip_7201",
+					"rawDisplayName": "perkstyle_displayname_7201"
+				},
+				"secondaryRuneTree": {
+					"displayName": "Dominación",
+					"id": 8100,
+					"rawDescription": "perkstyle_tooltip_7200",
+					"rawDisplayName": "perkstyle_displayname_7200"
+				}
+			},
+			"scores": {
+				"assists": 0,
+				"creepScore": 0,
+				"deaths": 0,
+				"kills": 0,
+				"wardScore": 0.0
+			},
+			"skinID": 15,
+			"skinName": "Irelia Invictus Gaming",
+			"summonerName": "bluhz",
+			"summonerSpells": {
+				"summonerSpellOne": {
+					"displayName": "Destello",
+					"rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
+					"rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
+				},
+				"summonerSpellTwo": {
+					"displayName": "Ignición",
+					"rawDescription": "GeneratedTip_SummonerSpell_SummonerDot_Description",
+					"rawDisplayName": "GeneratedTip_SummonerSpell_SummonerDot_DisplayName"
+				}
+			},
+			"team": "ORDER"
+		},
+		{
+			"championName": "Jax",
+			"isBot": false,
+			"isDead": false,
+			"items": [],
+			"level": 1,
+			"position": "JUNGLE",
+			"rawChampionName": "game_character_displayname_Jax",
+			"respawnTimer": 0.0,
+			"runes": {
+				"keystone": {
+					"displayName": "Conquistador",
+					"id": 8010,
+					"rawDescription": "perk_tooltip_Conqueror",
+					"rawDisplayName": "perk_displayname_Conqueror"
+				},
+				"primaryRuneTree": {
+					"displayName": "Precisión",
+					"id": 8000,
+					"rawDescription": "perkstyle_tooltip_7201",
+					"rawDisplayName": "perkstyle_displayname_7201"
+				},
+				"secondaryRuneTree": {
+					"displayName": "Dominación",
+					"id": 8100,
+					"rawDescription": "perkstyle_tooltip_7200",
+					"rawDisplayName": "perkstyle_displayname_7200"
+				}
+			},
+			"scores": {
+				"assists": 0,
+				"creepScore": 0,
+				"deaths": 0,
+				"kills": 0,
+				"wardScore": 0.0
+			},
+			"skinID": 0,
+			"summonerName": "Diaz0515",
+			"summonerSpells": {
+				"summonerSpellOne": {
+					"displayName": "Castigo",
+					"rawDescription": "GeneratedTip_SummonerSpell_SummonerSmite_Description",
+					"rawDisplayName": "GeneratedTip_SummonerSpell_SummonerSmite_DisplayName"
+				},
+				"summonerSpellTwo": {
+					"displayName": "Destello",
+					"rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
+					"rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
+				}
+			},
+			"team": "ORDER"
+		},
+		{
+			"championName": "Akali",
+			"isBot": false,
+			"isDead": false,
+			"items": [],
+			"level": 1,
+			"position": "MIDDLE",
+			"rawChampionName": "game_character_displayname_Akali",
+			"respawnTimer": 0.0,
+			"runes": {
+				"keystone": {
+					"displayName": "Sobre la Marcha",
+					"id": 8021,
+					"rawDescription": "perk_tooltip_FleetFootwork",
+					"rawDisplayName": "perk_displayname_FleetFootwork"
+				},
+				"primaryRuneTree": {
+					"displayName": "Precisión",
+					"id": 8000,
+					"rawDescription": "perkstyle_tooltip_7201",
+					"rawDisplayName": "perkstyle_displayname_7201"
+				},
+				"secondaryRuneTree": {
+					"displayName": "Dominación",
+					"id": 8100,
+					"rawDescription": "perkstyle_tooltip_7200",
+					"rawDisplayName": "perkstyle_displayname_7200"
+				}
+			},
+			"scores": {
+				"assists": 0,
+				"creepScore": 0,
+				"deaths": 0,
+				"kills": 0,
+				"wardScore": 0.0
+			},
+			"skinID": 0,
+			"summonerName": "GIRsito",
+			"summonerSpells": {
+				"summonerSpellOne": {
+					"displayName": "Destello",
+					"rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
+					"rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
+				},
+				"summonerSpellTwo": {
+					"displayName": "Ignición",
+					"rawDescription": "GeneratedTip_SummonerSpell_SummonerDot_Description",
+					"rawDisplayName": "GeneratedTip_SummonerSpell_SummonerDot_DisplayName"
+				}
+			},
+			"team": "ORDER"
+		},
+		{
+			"championName": "Yasuo",
+			"isBot": false,
+			"isDead": false,
+			"items": [],
+			"level": 1,
+			"position": "BOTTOM",
+			"rawChampionName": "game_character_displayname_Yasuo",
+			"respawnTimer": 0.0,
+			"runes": {
+				"keystone": {
+					"displayName": "Conquistador",
+					"id": 8010,
+					"rawDescription": "perk_tooltip_Conqueror",
+					"rawDisplayName": "perk_displayname_Conqueror"
+				},
+				"primaryRuneTree": {
+					"displayName": "Precisión",
+					"id": 8000,
+					"rawDescription": "perkstyle_tooltip_7201",
+					"rawDisplayName": "perkstyle_displayname_7201"
+				},
+				"secondaryRuneTree": {
+					"displayName": "Dominación",
+					"id": 8100,
+					"rawDescription": "perkstyle_tooltip_7200",
+					"rawDisplayName": "perkstyle_displayname_7200"
+				}
+			},
+			"scores": {
+				"assists": 0,
+				"creepScore": 0,
+				"deaths": 0,
+				"kills": 0,
+				"wardScore": 0.0
+			},
+			"skinID": 0,
+			"summonerName": "fakaso68",
+			"summonerSpells": {
+				"summonerSpellOne": {
+					"displayName": "Destello",
+					"rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
+					"rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
+				},
+				"summonerSpellTwo": {
+					"displayName": "Extenuación",
+					"rawDescription": "GeneratedTip_SummonerSpell_SummonerExhaust_Description",
+					"rawDisplayName": "GeneratedTip_SummonerSpell_SummonerExhaust_DisplayName"
+				}
+			},
+			"team": "ORDER"
+		},
+		{
+			"championName": "Thresh",
+			"isBot": false,
+			"isDead": false,
+			"items": [],
+			"level": 1,
+			"position": "UTILITY",
+			"rawChampionName": "game_character_displayname_Thresh",
+			"respawnTimer": 0.0,
+			"runes": {
+				"keystone": {
+					"displayName": "Réplica",
+					"id": 8439,
+					"rawDescription": "perk_tooltip_VeteranAftershock",
+					"rawDisplayName": "perk_displayname_VeteranAftershock"
+				},
+				"primaryRuneTree": {
+					"displayName": "Valor",
+					"id": 8400,
+					"rawDescription": "perkstyle_tooltip_7204",
+					"rawDisplayName": "perkstyle_displayname_7204"
+				},
+				"secondaryRuneTree": {
+					"displayName": "Inspiración",
+					"id": 8300,
+					"rawDescription": "perkstyle_tooltip_7203",
+					"rawDisplayName": "perkstyle_displayname_7203"
+				}
+			},
+			"scores": {
+				"assists": 0,
+				"creepScore": 0,
+				"deaths": 0,
+				"kills": 0,
+				"wardScore": 0.0
+			},
+			"skinID": 0,
+			"summonerName": "BRYANBD",
+			"summonerSpells": {
+				"summonerSpellOne": {
+					"displayName": "Destello",
+					"rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
+					"rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
+				},
+				"summonerSpellTwo": {
+					"displayName": "Ignición",
+					"rawDescription": "GeneratedTip_SummonerSpell_SummonerDot_Description",
+					"rawDisplayName": "GeneratedTip_SummonerSpell_SummonerDot_DisplayName"
+				}
+			},
+			"team": "ORDER"
+		},
+		{
+			"championName": "Volibear",
+			"isBot": false,
+			"isDead": false,
+			"items": [
+				{
+					"canUse": false,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Escudo de Doran",
+					"itemID": 1054,
+					"price": 450,
+					"rawDescription": "game_item_description_1054",
+					"rawDisplayName": "game_item_displayname_1054",
+					"slot": 0
+				},
+				{
+					"canUse": true,
+					"consumable": true,
+					"count": 1,
+					"displayName": "Poción de Vida",
+					"itemID": 2003,
+					"price": 50,
+					"rawDescription": "game_item_description_2003",
+					"rawDisplayName": "game_item_displayname_2003",
+					"slot": 1
+				},
+				{
+					"canUse": true,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Tótem Centinela (Baratija)",
+					"itemID": 3340,
+					"price": 0,
+					"rawDescription": "game_item_description_3340",
+					"rawDisplayName": "game_item_displayname_3340",
+					"slot": 6
+				}
+			],
+			"level": 1,
+			"position": "TOP",
+			"rawChampionName": "game_character_displayname_Volibear",
+			"respawnTimer": 0.0,
+			"runes": {
+				"keystone": {
+					"displayName": "Estrategia Ofensiva",
+					"id": 8005,
+					"rawDescription": "perk_tooltip_PressTheAttack",
+					"rawDisplayName": "perk_displayname_PressTheAttack"
+				},
+				"primaryRuneTree": {
+					"displayName": "Precisión",
+					"id": 8000,
+					"rawDescription": "perkstyle_tooltip_7201",
+					"rawDisplayName": "perkstyle_displayname_7201"
+				},
+				"secondaryRuneTree": {
+					"displayName": "Valor",
+					"id": 8400,
+					"rawDescription": "perkstyle_tooltip_7204",
+					"rawDisplayName": "perkstyle_displayname_7204"
+				}
+			},
+			"scores": {
+				"assists": 0,
+				"creepScore": 0,
+				"deaths": 0,
+				"kills": 0,
+				"wardScore": 0.0
+			},
+			"skinID": 0,
+			"summonerName": "Blunt con Tuzzi",
+			"summonerSpells": {
+				"summonerSpellOne": {
+					"displayName": "Destello",
+					"rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
+					"rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
+				},
+				"summonerSpellTwo": {
+					"displayName": "Teleportación",
+					"rawDescription": "GeneratedTip_SummonerSpell_SummonerTeleport_Description",
+					"rawDisplayName": "GeneratedTip_SummonerSpell_SummonerTeleport_DisplayName"
+				}
+			},
+			"team": "CHAOS"
+		},
+		{
+			"championName": "Maestro Yi",
+			"isBot": false,
+			"isDead": false,
+			"items": [
+				{
+					"canUse": false,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Machete del Cazador",
+					"itemID": 1041,
+					"price": 350,
+					"rawDescription": "game_item_description_1041",
+					"rawDisplayName": "game_item_displayname_1041",
+					"slot": 0
+				},
+				{
+					"canUse": true,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Poción Reutilizable",
+					"itemID": 2031,
+					"price": 150,
+					"rawDescription": "game_item_description_2031",
+					"rawDisplayName": "game_item_displayname_2031",
+					"slot": 1
+				},
+				{
+					"canUse": true,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Tótem Centinela (Baratija)",
+					"itemID": 3340,
+					"price": 0,
+					"rawDescription": "game_item_description_3340",
+					"rawDisplayName": "game_item_displayname_3340",
+					"slot": 6
+				}
+			],
+			"level": 1,
+			"position": "JUNGLE",
+			"rawChampionName": "game_character_displayname_MasterYi",
+			"respawnTimer": 0.0,
+			"runes": {
+				"keystone": {
+					"displayName": "Conquistador",
+					"id": 8010,
+					"rawDescription": "perk_tooltip_Conqueror",
+					"rawDisplayName": "perk_displayname_Conqueror"
+				},
+				"primaryRuneTree": {
+					"displayName": "Precisión",
+					"id": 8000,
+					"rawDescription": "perkstyle_tooltip_7201",
+					"rawDisplayName": "perkstyle_displayname_7201"
+				},
+				"secondaryRuneTree": {
+					"displayName": "Dominación",
+					"id": 8100,
+					"rawDescription": "perkstyle_tooltip_7200",
+					"rawDisplayName": "perkstyle_displayname_7200"
+				}
+			},
+			"scores": {
+				"assists": 0,
+				"creepScore": 0,
+				"deaths": 0,
+				"kills": 0,
+				"wardScore": 0.0
+			},
+			"skinID": 0,
+			"summonerName": "Katharsiss96",
+			"summonerSpells": {
+				"summonerSpellOne": {
+					"displayName": "Destello",
+					"rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
+					"rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
+				},
+				"summonerSpellTwo": {
+					"displayName": "Castigo",
+					"rawDescription": "GeneratedTip_SummonerSpell_SummonerSmite_Description",
+					"rawDisplayName": "GeneratedTip_SummonerSpell_SummonerSmite_DisplayName"
+				}
+			},
+			"team": "CHAOS"
+		},
+		{
+			"championName": "Ekko",
+			"isBot": false,
+			"isDead": false,
+			"items": [
+				{
+					"canUse": true,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Poción de Corrupción",
+					"itemID": 2033,
+					"price": 350,
+					"rawDescription": "game_item_description_2033",
+					"rawDisplayName": "game_item_displayname_2033",
+					"slot": 0
+				},
+				{
+					"canUse": true,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Tótem Centinela (Baratija)",
+					"itemID": 3340,
+					"price": 0,
+					"rawDescription": "game_item_description_3340",
+					"rawDisplayName": "game_item_displayname_3340",
+					"slot": 6
+				}
+			],
+			"level": 1,
+			"position": "MIDDLE",
+			"rawChampionName": "game_character_displayname_Ekko",
+			"respawnTimer": 0.0,
+			"runes": {
+				"keystone": {
+					"displayName": "Electrocutar",
+					"id": 8112,
+					"rawDescription": "perk_tooltip_Electrocute",
+					"rawDisplayName": "perk_displayname_Electrocute"
+				},
+				"primaryRuneTree": {
+					"displayName": "Dominación",
+					"id": 8100,
+					"rawDescription": "perkstyle_tooltip_7200",
+					"rawDisplayName": "perkstyle_displayname_7200"
+				},
+				"secondaryRuneTree": {
+					"displayName": "Precisión",
+					"id": 8000,
+					"rawDescription": "perkstyle_tooltip_7201",
+					"rawDisplayName": "perkstyle_displayname_7201"
+				}
+			},
+			"scores": {
+				"assists": 0,
+				"creepScore": 0,
+				"deaths": 0,
+				"kills": 0,
+				"wardScore": 0.0
+			},
+			"skinID": 0,
+			"summonerName": "jfcatuzzi",
+			"summonerSpells": {
+				"summonerSpellOne": {
+					"displayName": "Destello",
+					"rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
+					"rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
+				},
+				"summonerSpellTwo": {
+					"displayName": "Castigo",
+					"rawDescription": "GeneratedTip_SummonerSpell_SummonerSmite_Description",
+					"rawDisplayName": "GeneratedTip_SummonerSpell_SummonerSmite_DisplayName"
+				}
+			},
+			"team": "CHAOS"
+		},
+		{
+			"championName": "Kai'Sa",
+			"isBot": false,
+			"isDead": false,
+			"items": [],
+			"level": 1,
+			"position": "BOTTOM",
+			"rawChampionName": "game_character_displayname_Kaisa",
+			"respawnTimer": 0.0,
+			"runes": {
+				"keystone": {
+					"displayName": "Lluvia de Espadas",
+					"id": 9923,
+					"rawDescription": "perk_tooltip_HailOfBlades",
+					"rawDisplayName": "perk_displayname_HailOfBlades"
+				},
+				"primaryRuneTree": {
+					"displayName": "Dominación",
+					"id": 8100,
+					"rawDescription": "perkstyle_tooltip_7200",
+					"rawDisplayName": "perkstyle_displayname_7200"
+				},
+				"secondaryRuneTree": {
+					"displayName": "Precisión",
+					"id": 8000,
+					"rawDescription": "perkstyle_tooltip_7201",
+					"rawDisplayName": "perkstyle_displayname_7201"
+				}
+			},
+			"scores": {
+				"assists": 0,
+				"creepScore": 0,
+				"deaths": 0,
+				"kills": 0,
+				"wardScore": 0.0
+			},
+			"skinID": 0,
+			"summonerName": "Altochori",
+			"summonerSpells": {
+				"summonerSpellOne": {
+					"displayName": "Destello",
+					"rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
+					"rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
+				},
+				"summonerSpellTwo": {
+					"displayName": "Curación",
+					"rawDescription": "GeneratedTip_SummonerSpell_SummonerHeal_Description",
+					"rawDisplayName": "GeneratedTip_SummonerSpell_SummonerHeal_DisplayName"
+				}
+			},
+			"team": "CHAOS"
+		},
+		{
+			"championName": "Lux",
+			"isBot": false,
+			"isDead": false,
+			"items": [
+				{
+					"canUse": false,
+					"consumable": false,
+					"count": 1,
+					"displayName": "Filo del Robahechizos",
+					"itemID": 3850,
+					"price": 400,
+					"rawDescription": "game_item_description_3850",
+					"rawDisplayName": "game_item_displayname_3850",
+					"slot": 0
+				},
+				{
+					"canUse": true,
+					"consumable": true,
+					"count": 2,
+					"displayName": "Poción de Vida",
+					"itemID": 2003,
+					"price": 50,
+					"rawDescription": "game_item_description_2003",
+					"rawDisplayName": "game_item_displayname_2003",
+					"slot": 1
+				}
+			],
+			"level": 1,
+			"position": "UTILITY",
+			"rawChampionName": "game_character_displayname_Lux",
+			"respawnTimer": 0.0,
+			"runes": {
+				"keystone": {
+					"displayName": "Invocación: Aery",
+					"id": 8214,
+					"rawDescription": "perk_tooltip_SummonAery",
+					"rawDisplayName": "perk_displayname_SummonAery"
+				},
+				"primaryRuneTree": {
+					"displayName": "Brujería",
+					"id": 8200,
+					"rawDescription": "perkstyle_tooltip_7202",
+					"rawDisplayName": "perkstyle_displayname_7202"
+				},
+				"secondaryRuneTree": {
+					"displayName": "Dominación",
+					"id": 8100,
+					"rawDescription": "perkstyle_tooltip_7200",
+					"rawDisplayName": "perkstyle_displayname_7200"
+				}
+			},
+			"scores": {
+				"assists": 0,
+				"creepScore": 0,
+				"deaths": 0,
+				"kills": 0,
+				"wardScore": 0.0
+			},
+			"skinID": 0,
+			"summonerName": "Yotoco Tuhoyo æ",
+			"summonerSpells": {
+				"summonerSpellOne": {
+					"displayName": "Destello",
+					"rawDescription": "GeneratedTip_SummonerSpell_SummonerFlash_Description",
+					"rawDisplayName": "GeneratedTip_SummonerSpell_SummonerFlash_DisplayName"
+				},
+				"summonerSpellTwo": {
+					"displayName": "Curación",
+					"rawDescription": "GeneratedTip_SummonerSpell_SummonerHeal_Description",
+					"rawDisplayName": "GeneratedTip_SummonerSpell_SummonerHeal_DisplayName"
+				}
+			},
+			"team": "CHAOS"
+		}
+	],
+	"events": {
+		"Events": [
+			{
+				"EventID": 0,
+				"EventName": "GameStart",
+				"EventTime": 0.03482320159673691
+			}
+		]
+	},
+	"gameData": {
+		"gameMode": "CLASSIC",
+		"gameTime": 13.594481468200684,
+		"mapName": "Map11",
+		"mapNumber": 11,
+		"mapTerrain": "Default"
+	}
+}

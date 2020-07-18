@@ -1,4 +1,5 @@
 /* Custom CSS */
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 
 html, body{
     height: 100%;
@@ -6,6 +7,9 @@ html, body{
     padding: 0;
 }
 
+h5, h6{
+    font-family: 'Acme', sans-serif;
+}
 
 /************************************************* INCIO */
 
@@ -177,6 +181,8 @@ body.wiki {
     color : white;
 }
 
+/****** Tabs */
+
 #wiki a.nav-link{
     color: white;
 }
@@ -192,6 +198,8 @@ body.wiki {
 #wiki .nav-link.active:hover{
     background-color: white;
 }
+
+/****** Tabs */
 
 #wiki .champsel{
     margin : 20px 0;
@@ -269,7 +277,7 @@ body.wiki {
     margin: 0;
 }
 
-/* ************************* Tabla Stats*/
+/* ************ Tabla Stats*/
 
 #wiki table.stats{
     color : white;
@@ -288,7 +296,7 @@ body.wiki {
     background-color: #c38c45;
 }
 
-/* ************************* Tabla Skills*/
+/* ************ Tabla Skills*/
 
 #wiki table.skills{
     color : white;
@@ -299,4 +307,139 @@ body.wiki {
 #wiki table.skills th, #wiki table.skills td{
     border-bottom: 1px solid #ddd;
     text-align: center;
+}
+
+/************************************************* ESPIA */
+
+body.espia {
+    background: url(/static/img/bg1.jpg) no-repeat center center fixed;
+    background-size: cover;
+    color : white;
+}
+
+#espia i{
+    font-size: larger;
+}
+
+.tooltip > .tooltip-inner {
+    color: #131313;
+    background-color: white;
+}
+
+#espia .row.servers{
+    padding : 20px 0;
+}
+
+#espia .row{
+    margin-top : 10px 0;
+}
+
+#espia .tab-pane{
+    padding-top : 20px;
+}
+
+/****** Tabs */
+
+#espia a.nav-link{
+    color: white;
+}
+
+#espia a.nav-link.active{
+    color: #495057;
+}
+
+#espia .nav-link:hover{
+    background-color: #555;
+}
+
+#espia .nav-link.active:hover{
+    background-color: white;
+}
+
+/****** Tabs */
+
+#espia .btn_more{
+    margin: 5px;
+}
+
+#espia .champ_mas{
+    margin-bottom: 20px;
+}
+
+#espia .col.imagen{
+    margin-right: 10px;
+}
+
+#espia .col.imagen img{
+    width: 100%
+}
+
+/**** tags colors */
+
+#espia .tag {
+    display: inline-block;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 400;
+    border: 1px solid;
+    padding: 5px 10px;
+    margin: 2px 2px;
+}
+
+#espia .tag a {
+    color: inherit;
+    font-size: inherit;
+    text-decoration: inherit;
+}
+
+#espia .tag.green {
+    background-color: #1b9468;
+}
+
+#espia .tag.brown {
+    background-color: #6a5549;
+}
+
+#espia .tag.yellow {
+    background-color: #bf8300;
+}
+
+#espia .tag.red {
+    background-color: #E9422E;
+}
+
+#espia .champ .info p{
+    margin-left: 15px;
+}
+
+#espia .champ .info img.rank{
+    width: 80px;
+}
+
+#espia i{
+    width: 30px;
+}
+
+#espia .champ_mas h5,#espia .champ_mas h6{
+    text-align: center;
+}
+
+#espia .champ_mas img.champ{
+    width: 75px;
+}
+
+#espia .champ_mas img.champ.level{
+    width: 30px;
+    margin-top: -40px;
+    margin-left: 3px;
+}
+
+#espia .champ_mas .row.champ{
+    padding-top: 10px;
+}
+
+#espia .row.champ i{
+    padding-top: 2px;
 }

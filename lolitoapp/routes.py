@@ -3,6 +3,7 @@ from app import app
 
 from runero import controller as runeroController
 from wiki import controller as wikiController
+from espia import controller as espiaController
 
 
 ########################################## RUTAS
@@ -37,6 +38,13 @@ def wiki():
     return wikiController.getwiki()
 
 
-@app.route("/wiki/<champ>/<pos>", methods=['GET'])
+@app.route("/wiki/<champ>/<pos>")
 def wiki_cahmp(champ, pos):
     return wikiController.getchamp(champ, pos)
+
+###################### ESPIA
+
+@app.route("/espia/", defaults={'server': None})
+@app.route("/espia/<server>")
+def espia(server):
+    return espiaController.getwiki(server)
