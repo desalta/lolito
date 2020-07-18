@@ -47,4 +47,4 @@ def wiki_cahmp(champ, pos):
 @app.route("/espia/", defaults={'server': None})
 @app.route("/espia/<server>")
 def espia(server):
-    return espiaController.getwiki(server)
+    return espiaController.getespia(server)

@@ -300,7 +300,7 @@ body.wiki {
 
 #wiki table.skills{
     color : white;
-    width: 100%;
+    width: 90%;
 }
 
 
@@ -427,7 +427,7 @@ body.espia {
 }
 
 #espia .champ_mas img.champ{
-    width: 75px;
+    width: 65px;
 }
 
 #espia .champ_mas img.champ.level{
@@ -442,4 +442,11 @@ body.espia {
 
 #espia .row.champ i{
     padding-top: 2px;
+}
+
+
+
+
+#progressBar {
+    margin: 20px;
 }

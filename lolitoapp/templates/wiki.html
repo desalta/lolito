@@ -32,6 +32,10 @@
     </div>
 
     <div class="container-fluid wiki_content">
+        {% if not data %}
+        <p>Seleccionar un campeón y posición</p>
+        {% endif %}
+
         {% if data %}
         <!-- Tabs -->
         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -200,17 +204,19 @@
 
                         {% set aux = build['skill'] %}
                         <h6 class="skills">Orden de Habilidad <span class="wr"> ({{aux['wr']}})</span></h6>
-                        <table class="skills">
-                            <thead>
-                                <tr>{% for item in aux['data'][0:18] %}<th>{{item}}</th>{% endfor %}</tr>
-                            </thead>
-                            <tbody>
-                                <tr>{% for item in aux['data'][18:36] %}<td>{{item}}</td>{% endfor %}</tr>
-                                <tr>{% for item in aux['data'][36:54] %}<td>{{item}}</td>{% endfor %}</tr>
-                                <tr>{% for item in aux['data'][54:72] %}<td>{{item}}</td>{% endfor %}</tr>
-                                <tr>{% for item in aux['data'][72:90] %}<td>{{item}}</td>{% endfor %}</tr>
-                            </tbody>
-                        </table>
+                        <div class="d-flex justify-content-center">
+                            <table class="skills">
+                                <thead>
+                                    <tr>{% for item in aux['data'][0:18] %}<th>{{item}}</th>{% endfor %}</tr>
+                                </thead>
+                                <tbody>
+                                    <tr>{% for item in aux['data'][18:36] %}<td>{{item}}</td>{% endfor %}</tr>
+                                    <tr>{% for item in aux['data'][36:54] %}<td>{{item}}</td>{% endfor %}</tr>
+                                    <tr>{% for item in aux['data'][54:72] %}<td>{{item}}</td>{% endfor %}</tr>
+                                    <tr>{% for item in aux['data'][72:90] %}<td>{{item}}</td>{% endfor %}</tr>
+                                </tbody>
+                            </table>
+                        </div>
                         
 
                     </div>

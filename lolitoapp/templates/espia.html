@@ -88,7 +88,7 @@
                         <div class="col info">
                             <h5>{{champ['champ']}} {{champ['pos']}} ({{champ['name']}})</h5>
 
-                            <h6>Normales + Ranked</h6>
+                            <h6>Estadísticas</h6>
                             <p>
                                 <span><i class="fas fa-gamepad" data-toggle="tooltip" data-placement="left" title="Partidas Jugadas"></i> {{avg['normales']['plays']}}</span><br>
                                 <span><i class="fas fa-laugh-beam" data-toggle="tooltip" data-placement="left" title="Partidas Ganadas"></i> {{avg['normales']['wins']}}</span><br>
@@ -145,7 +145,7 @@
                 <div class="collapse champ_mas" id="champ_mas-{{teamId}}_{{champId}}">
                       
                     <div class="row">
-                        <h5>Champs mas usados</h5>
+                        <h5>Campeones mas usados</h5>
 
                         {% for key in champs %}
                         {% if key != "ranked"%}
@@ -165,7 +165,9 @@
                                 
                                 <div class="col col-4">
                                     <img class="champ" src="{{item['champ_name_img']}}">
+                                    {% if item['champ_level'] != none %}
                                     <img class="champ level" src="{{item['champ_level_img']}}" data-toggle="tooltip" data-placement="bottom" title="Maestria {{item['champ_level']}}">
+                                    {% endif %}
                                 </div>
                                 <div class="col">
                                     <span>{{item['champ_name']}}</span><br>
@@ -203,9 +205,20 @@
     <script>
         function actionBuscar() {
             var val = $("#seleccion").val()
-
             var urlBase = window.location.origin;
             var url = urlBase + "/espia/" + val
+
+            $( ".espia_content" ).replaceWith( "<progress value='0' max='15' id='progressBar'></progress>" );
+            var timeleft = 15;
+            var downloadTimer = setInterval(function(){
+                if(timeleft <= 0){
+                    clearInterval(downloadTimer);
+                }
+                document.getElementById("progressBar").value = 15 - timeleft;
+                timeleft -= 1;
+            }, 1000);
+
+
             window.location.href = url;
         }
 

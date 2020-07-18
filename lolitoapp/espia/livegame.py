@@ -42,13 +42,14 @@ def getLocalData():
 
     result = {'ORDER': [], 'CHAOS': []}
     for play in data['allPlayers']:
-        result[play['team']].append({
-            'name': play['summonerName'],
-            'champ': play['championName'],
-            'pos': play['position'],
-            'skin' : play['skinID'],
-            'champ_img' : ""
-        })
+        if not play['isBot']:
+            result[play['team']].append({
+                'name': play['summonerName'],
+                'champ': play['championName'],
+                'pos': play['position'],
+                'skin' : play['skinID'],
+                'champ_img' : ""
+            })
 
     return result
 
@@ -58,6 +59,10 @@ def getStatChamp(server, name):
     result = {}
 
     if soup is None:
+        return result
+
+    test = soup.find(id="profileBasicStats")
+    if test is None:
         return result
 
     ############################# LIGA
@@ -241,6 +246,8 @@ def getLiveData(server, localdata):
     for team in localdata:
         for champ in localdata[team]:
             name = urllib.parse.quote(champ['name'])
+            #setDataChampInThread(server,name,champ)
+            print('abriendo thread para buscar: '+name)
             t = threading.Thread(target=setDataChampInThread, args=(server, name,champ))
             thread_list.append(t)
             t.start()
@@ -248,9 +255,7 @@ def getLiveData(server, localdata):
     for thread in thread_list:
         thread.join()
 
-    return localdata
-
 def getLiveDataMock(server, localdata):
     with open('./espia/allspydata.json') as json_file:
         data = json.load(json_file)
-    return data
+    localdata = data

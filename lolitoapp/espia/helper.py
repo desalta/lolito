@@ -2,9 +2,10 @@ import json
 
 def getChampId(champName,lang):
     lang = "esAR" if lang is None else lang
-    file = './espia/champs/champion_{}.json'.format(lang)
-    with open(file) as json_file:
-        dataJson = json.load(json_file)
+    fileJson = './espia/champs/champion_{}.json'.format(lang)
+#    with open(file) as json_file:
+#        dataJson = json.load(json_file)
+    dataJson = json.load(open(fileJson, 'r', encoding='utf-8'))
 
     for key in dataJson['data']:
         if dataJson['data'][key]['name'] == champName:
