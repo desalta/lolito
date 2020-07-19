@@ -90,11 +90,15 @@
 
                             <h6>Estadísticas</h6>
                             <p>
-                                <span><i class="fas fa-gamepad" data-toggle="tooltip" data-placement="left" title="Partidas Jugadas"></i> {{avg['normales']['plays']}}</span><br>
-                                <span><i class="fas fa-laugh-beam" data-toggle="tooltip" data-placement="left" title="Partidas Ganadas"></i> {{avg['normales']['wins']}}</span><br>
-                                <span><i class="fas fa-tired" data-toggle="tooltip" data-placement="left" title="Partidas Perdidas"></i> {{avg['normales']['loss']}}</span><br>
-                                <span><i class="fas fa-biohazard" data-toggle="tooltip" data-placement="left" title="Enemigos con que se Empareja"></i> {{champ['data']['league']['enemy_avg']['name']}}</span><br>
+                                <span><i class="fas fa-gamepad" data-toggle="tooltip" data-placement="left" title="Cantidad de partidas Jugadas (Ganadas)"></i> {{avg['normales']['plays']}} ({{avg['normales']['wins']}})</span><br>
+                                <!-- <span><i class="fas fa-laugh-beam" data-toggle="tooltip" data-placement="left" title="Partidas Ganadas"></i> {{avg['normales']['wins']}}</span><br> -->
+                                <!-- <span><i class="fas fa-tired" data-toggle="tooltip" data-placement="left" title="Partidas Perdidas"></i> {{avg['normales']['loss']}}</span><br> -->
                                 <span><i class="fas fa-award" data-toggle="tooltip" data-placement="left" title="Promedio Kills/Muertes/Asistencias"></i> {{kda['normales']['kills']}}/{{kda['normales']['deaths']}}/{{kda['normales']['assists']}}</span><br>
+                            </p>
+
+                            <h6>Enemigos Eparejados</h6>
+                            <p>
+                                <span><i class="fas fa-biohazard" data-toggle="tooltip" data-placement="left" title="Enemigos con que se Empareja"></i> {{champ['data']['league']['enemy_avg']['name']}}</span><br>
                             </p>
 
                             
@@ -115,9 +119,9 @@
                                 <div class="col">
                                     <p>
                                         <span>{{league['best_league']['name']}}</span><br>
-                                        <span><i class="fas fa-gamepad" data-toggle="tooltip" data-placement="left" title="Partidas Jugadas"></i> {{avg['soloqueue']['plays']}}</span><br>
-                                        <span><i class="fas fa-laugh-beam" data-toggle="tooltip" data-placement="left" title="Partidas Ganadas"></i> {{avg['soloqueue']['wins']}}</span><br>
-                                        <span><i class="fas fa-tired" data-toggle="tooltip" data-placement="left" title="Partidas Perdidas"></i> {{avg['soloqueue']['loss']}}</span><br>
+                                        <span><i class="fas fa-gamepad" data-toggle="tooltip" data-placement="left" title="Cantidad de partidas Jugadas"></i> {{avg['soloqueue']['plays']}} ({{avg['soloqueue']['wins']}})</span><br>
+                                        <!-- <span><i class="fas fa-laugh-beam" data-toggle="tooltip" data-placement="left" title="Partidas Ganadas"></i> {{avg['soloqueue']['wins']}}</span><br> -->
+                                        <!-- <span><i class="fas fa-tired" data-toggle="tooltip" data-placement="left" title="Partidas Perdidas"></i> {{avg['soloqueue']['loss']}}</span><br> -->
                                         <span><i class="fas fa-award" data-toggle="tooltip" data-placement="left" title="Promedio Kills/Muertes/Asistencias"></i> {{kda['soloqueue']['kills']}}/{{kda['soloqueue']['deaths']}}/{{kda['soloqueue']['assists']}}</span><br>
                                     </p>
                                 </div>
@@ -129,9 +133,9 @@
                             <h6>Flex</h6>
                             <p>
                                 <span>{{league['other_league']['name']}}</span><br>
-                                <span><i class="fas fa-gamepad" data-toggle="tooltip" data-placement="left" title="Partidas Jugadas"></i> {{avg['flexible']['plays']}}</span><br>
-                                <span><i class="fas fa-laugh-beam" data-toggle="tooltip" data-placement="left" title="Partidas Ganadas"></i> {{avg['flexible']['wins']}}</span><br>
-                                <span><i class="fas fa-tired" data-toggle="tooltip" data-placement="left" title="Partidas Perdidas"></i> {{avg['flexible']['loss']}}</span><br>
+                                <span><i class="fas fa-gamepad" data-toggle="tooltip" data-placement="left" title="Cantidad de partidas Jugadas"></i> {{avg['flexible']['plays']}} ({{avg['flexible']['wins']}})</span><br>
+                                <!-- <span><i class="fas fa-laugh-beam" data-toggle="tooltip" data-placement="left" title="Partidas Ganadas"></i> {{avg['flexible']['wins']}}</span><br> -->
+                                <!-- <span><i class="fas fa-tired" data-toggle="tooltip" data-placement="left" title="Partidas Perdidas"></i> {{avg['flexible']['loss']}}</span><br> -->
                                 <span><i class="fas fa-award" data-toggle="tooltip" data-placement="left" title="Promedio Kills/Muertes/Asistencias"></i> {{kda['flexible']['kills']}}/{{kda['flexible']['deaths']}}/{{kda['flexible']['assists']}}</span><br>
                             </p>
                             {% endif %}
@@ -171,8 +175,8 @@
                                 </div>
                                 <div class="col">
                                     <span>{{item['champ_name']}}</span><br>
+                                    <span><i class="fas fa-gamepad"  data-toggle="tooltip" data-placement="left" title="Cantidad de partidas Jugadas (Ganadas) "></i>{{item['plays']}} ({{item['wins']}})</span><br>
                                     <span><i class="fas fa-award" data-toggle="tooltip" data-placement="left" title="Promedio Kills/Muertes/Asistencias"></i> {{item['kda']['kills']}}/{{item['kda']['deaths']}}/{{item['kda']['assists']}}</span><br>
-                                    <span><i class="fas fa-chart-bar"  data-toggle="tooltip" data-placement="left" title="Cantidad de partidas Jugadas (Ganadas) "></i> {{item['plays']}} ({{item['wins']}})</span><br>
                                 </div>
 
                             </div>
@@ -208,13 +212,13 @@
             var urlBase = window.location.origin;
             var url = urlBase + "/espia/" + val
 
-            $( ".espia_content" ).replaceWith( "<progress value='0' max='15' id='progressBar'></progress>" );
-            var timeleft = 15;
+            $( ".espia_content" ).replaceWith( "<progress value='0' max='22' id='progressBar'></progress>" );
+            var timeleft = 22;
             var downloadTimer = setInterval(function(){
                 if(timeleft <= 0){
                     clearInterval(downloadTimer);
                 }
-                document.getElementById("progressBar").value = 15 - timeleft;
+                document.getElementById("progressBar").value = 22 - timeleft;
                 timeleft -= 1;
             }, 1000);
 

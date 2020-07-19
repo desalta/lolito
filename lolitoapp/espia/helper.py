@@ -31,14 +31,38 @@ def fixData(data,lang):
             skinID = champ['skin']
             champ['champ_img'] = 'http://ddragon.leagueoflegends.com/cdn/img/champion/loading/{}_{}.jpg'.format(champID,skinID)
 
+            #### Agrego % perdidas
+            for keyAvg in champ['data']['avg']:
+                avg = champ['data']['avg'][keyAvg]
+                avg['loss'] = "{:.1f}%".format(100-float(avg['wins'][0:-1]))
+
+            #### Pongo champ usado en primero lugar
+            buscado = champ['champ']
+            for league in champ['data']['champs']:
+                lista = champ['data']['champs'][league]
+                noesta = True
+                for i in range(len(lista)):
+                    if lista[i]['champ_name']==buscado:
+                        lista.insert(0, lista.pop(5))
+                        noesta = False
+                if noesta:
+                    lista.insert(0,{
+                            "champ_name": buscado,
+                            "champ_level": "",
+                            "champ_level_img": "",
+                            "kda": {
+                                "kills": "0",
+                                "deaths": "0",
+                                "assists": "0"
+                            },
+                            "plays": "0",
+                            "wins": "0"
+                        })
+            
             ##### Corregir porcentajes y traer Imgen de champs frecuentes
             for league in champ['data']['champs']:
                 for champPlayed in champ['data']['champs'][league]:
                     champPlayed['wins'] = "{:.0f}%".format(float(champPlayed['wins'])*100.0)
                     champID = getChampId(champPlayed['champ_name'], lang)
                     champPlayed['champ_name_img'] = 'http://ddragon.leagueoflegends.com/cdn/10.14.1/img/champion/{}.png'.format(champID)
-
-            #### Agrego % perdidas
-            for keyAvg in champ['data']['avg']:
-                avg = champ['data']['avg'][keyAvg]
-                avg['loss'] = "{:.1f}%".format(100-float(avg['wins'][0:-1]))
+                    
