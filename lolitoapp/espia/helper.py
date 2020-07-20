@@ -3,8 +3,6 @@ import json
 def getChampId(champName,lang):
     lang = "esAR" if lang is None else lang
     fileJson = './espia/champs/champion_{}.json'.format(lang)
-#    with open(file) as json_file:
-#        dataJson = json.load(json_file)
     dataJson = json.load(open(fileJson, 'r', encoding='utf-8'))
 
     for key in dataJson['data']:
@@ -43,7 +41,7 @@ def fixData(data,lang):
                 noesta = True
                 for i in range(len(lista)):
                     if lista[i]['champ_name']==buscado:
-                        lista.insert(0, lista.pop(5))
+                        lista.insert(0, lista.pop(i))
                         noesta = False
                 if noesta:
                     lista.insert(0,{

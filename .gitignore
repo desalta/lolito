@@ -6,3 +6,6 @@
 
 .temp
 .idea
+
+logs/
+logs/*

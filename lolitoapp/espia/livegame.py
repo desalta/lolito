@@ -4,18 +4,22 @@ import urllib.parse
 import json
 import ssl
 import threading
+import time
 
+from . import jsonfile
 
 def getSoupUrl(url):
     try:
-        print(url + " ...\n")
+        print("request: "+url + "...\n")
         req = urllib.request.Request(url, headers={
             'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.100 Safari/537.36'})
         with urllib.request.urlopen(req) as response:
             html = response.read()
             soup = BeautifulSoup(html, "html.parser")
+            print("request: "+url + " ... terminado :) \n")
             return soup
     except:
+        print("request: "+url + " ... error :) \n")
         return None
 
 
@@ -29,16 +33,13 @@ def getJson(url):
     except:
         return None
 
-
 def getLocalData():
-    #Get Json from Juego
+    #Get data of game
     data = getJson('https://127.0.0.1:2999/liveclientdata/allgamedata')
+    jsonfile.saveJson('./espia/logs','localdata',20,data)
+    #data = jsonfile.readJson("./espia/logs/localdata 20-07-2020 15'25'39.json")
     if data is None:
-       return None
-
-    # Get Json from File
-    #with open('./espia/allgamedata.json') as json_file:
-    #    data = json.load(json_file)
+       return None 
 
     result = {'ORDER': [], 'CHAOS': []}
     for play in data['allPlayers']:
@@ -65,6 +66,8 @@ def getStatChamp(server, name):
     if test is None:
         return result
 
+    start_time = time.time()
+    print ("stats INI: {}".format(name))
     ############################# LIGA
     league = result['league'] = {}
 
@@ -236,6 +239,8 @@ def getStatChamp(server, name):
                 'wins': item.findAll('td')[2].find('progressbar')['data-value'][:5]
             })
 
+    elapsed_time = time.time() - start_time
+    print ("stats END: {} time:{}".format(name,elapsed_time))
     return result
 
 def setDataChampInThread(server,name,champ):
@@ -254,6 +259,8 @@ def getLiveData(server, localdata):
 
     for thread in thread_list:
         thread.join()
+    
+    print("join all ...")
 
 def getLiveDataMock(server, localdata):
     with open('./espia/allspydata.json') as json_file:

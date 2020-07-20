@@ -17,6 +17,7 @@ def getespia(server):
     livegame.getLiveData(server,localdata)
 
     #Corrije mapa para enviar
+    print("fix request ...")
     lang = request.args.get('lang')
     helper.fixData(localdata,lang)
 

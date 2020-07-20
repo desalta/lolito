@@ -39,6 +39,8 @@
 
     <div class="container-fluid espia_content">
         {% if data %}
+        <h5 class="pt-3 pb-2">Estadísticas de la Temporada</h5>
+
         <!-- Tabs -->
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
@@ -80,7 +82,7 @@
                     <div class="row">
                         <!-- Columna Imagen -->
                         <div class="col col-3 imagen">
-                            <img src="{{champ['champ_img']}}" data-toggle="collapse" href="#champ_mas-{{teamId}}_{{champId}}" role="button" aria-expanded="false" aria-controls="champ_mas-{{teamId}}_{{champId}}">
+                            <img src="{{champ['champ_img']}}" onerror="imgError(this);" data-toggle="collapse" href="#champ_mas-{{teamId}}_{{champId}}" role="button" aria-expanded="false" aria-controls="champ_mas-{{teamId}}_{{champId}}">
                             <a class="btn btn-info btn-sm btn_more" data-toggle="collapse" href="#champ_mas-{{teamId}}_{{champId}}" role="button" aria-expanded="false" aria-controls="champ_mas-{{teamId}}_{{champId}}">▽</a>
                         </div>
 
@@ -110,7 +112,7 @@
                         <!-- Columna Info Ranked -->
                         <div class="col info">
                             {% if league['best_league'] | length > 0 %}
-                            <h6>Soloqueue</h6>
+                            <h6>Solo/Duo</h6>
                             
                             <div class="row">
                                 <div class="col col-3">
@@ -157,8 +159,13 @@
                         <!-- Nommbre de la liga -->
                         {% set league = key %}
                         {% set lista = champs[key] %}
+
                         {% if key == "normales"%}
                         {% set league = "Ranked + Normales" %}
+                        {% endif %}
+
+                        {% if key == "soloqueue"%}
+                        {% set league = "Solo/Duo" %}
                         {% endif %}
 
                         <div class="col">
@@ -207,18 +214,20 @@
     <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
 
     <script>
+        //Funcion Buscar
         function actionBuscar() {
             var val = $("#seleccion").val()
             var urlBase = window.location.origin;
             var url = urlBase + "/espia/" + val
 
-            $( ".espia_content" ).replaceWith( "<progress value='0' max='22' id='progressBar'></progress>" );
-            var timeleft = 22;
+            //Muestro PrograssBar
+            $( ".espia_content" ).replaceWith( "<progress value='0' max='60' id='progressBar'></progress>" );
+            var timeleft = 60;
             var downloadTimer = setInterval(function(){
                 if(timeleft <= 0){
                     clearInterval(downloadTimer);
                 }
-                document.getElementById("progressBar").value = 22 - timeleft;
+                document.getElementById("progressBar").value = 60 - timeleft;
                 timeleft -= 1;
             }, 1000);
 
@@ -226,10 +235,19 @@
             window.location.href = url;
         }
 
+        //Activo tooltip
         var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="tooltip"]'))
         var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl)
         })
+
+        //En caso de imagen rota
+        function imgError(image) {
+            image.onerror = "";
+            var index = image.src.lastIndexOf("_");
+            image.src = image.src.substring(0, index) + "_0.jpg";
+            return true;
+        }
     </script>
 
 </body>
