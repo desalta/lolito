@@ -450,6 +450,7 @@ body.espia {
 
 #espia table.analisis{
     color : white;
+    font-size: small;
 }
 
 #espia table.analisis td{
@@ -463,6 +464,10 @@ body.espia {
 
 #espia table.analisis tr.hover {
     background-color: #c38c45;
+}
+
+#espia .rankedinfo{
+    margin-top: 30px;
 }
 
 

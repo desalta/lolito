@@ -37,7 +37,7 @@ def getLocalData():
     #Get data of game
     data = getJson('https://127.0.0.1:2999/liveclientdata/allgamedata')
     jsonfile.saveJson('./espia/logs','localdata',20,data)
-    #data = jsonfile.readJson("./espia/logs/localdata 20-07-2020 15'25'39.json")
+    #data = jsonfile.readJson("./espia/logs/localdata 20-07-2020 16'30'24.json")
     if data is None:
        return None 
 
