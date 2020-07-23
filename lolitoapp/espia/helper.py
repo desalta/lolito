@@ -94,17 +94,20 @@ def getMapAnalisis(data):
             kda = champ['data']['kda']['normales']
             league = champ['data']['league']
             best_league = league['best_league']
-            champs = champ['data']['champs']
+            champSel = champ['data']['champs']['normales'][0]
+            champSelKda = champSel['kda']
+            
 
             result[fila] = {
                 0 : champ['pos'],
                 1 : champ['name'],
-                2 : champ['champ'], #champ name
-                3 : "" if champs['normales'][0]['champ_level']==None else champs['normales'][0]['champ_level'], #maestria
-                4 : "{}/{}/{}".format(kda['kills'],kda['deaths'],kda['assists']), #kda
-                5 : "{} ({})".format(avg['plays'],avg['wins']), #play(wins)
-                6 : league['enemy_avg']['name'], #enemigos
-                7 : best_league['name'] if 'name' in best_league else "", #max league
+                2 : "{} ({})".format(avg['plays'],avg['wins']), #play(wins) general
+                3 : champ['champ'], #champ name
+                4 : "" if champSel['champ_level']==None else champSel['champ_level'], #maestria
+                5 : "{}/{}/{}".format(champSelKda['kills'],champSelKda['deaths'],champSelKda['assists']), #kda
+                6 : "{} ({})".format(champSel['plays'],champSel['wins']), #play(wins) campeon
+                7 : league['enemy_avg']['name'], #enemigos
+                8 : best_league['name'] if 'name' in best_league else "", #max league
                 #'7' : 0 #puntaje general
             }
 

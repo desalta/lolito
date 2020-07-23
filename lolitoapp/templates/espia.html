@@ -215,6 +215,7 @@
                       <tr>
                         <th scope="col">Pos</th>
                         <th scope="col">Nombre</th>
+                        <th scope="col">Part. gral.</th>
                         <th scope="col">Camp</th>
                         <th scope="col">Maes</th>
                         <th scope="col">KDA</th>
@@ -227,11 +228,11 @@
                         {% for fila in range(analisis|length) %}
 
                         {% if fila==5 %}
-                        <tr style="height: 35px;"> {% for col in range(8)%} <td> </td> {% endfor %} </tr>
+                        <tr style="height: 35px;"> {% for col in range(9)%} <td> </td> {% endfor %} </tr>
                         {% endif %}
 
                         <tr class="analisis_row" id="row_{{fila}}">
-                            {% for col in range(8)%}
+                            {% for col in range(9)%}
                             <td>{{analisis[fila][col]}}</td>
                             {% endfor %}
                         </tr>
