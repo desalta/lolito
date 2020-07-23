@@ -262,7 +262,7 @@ def getLiveData(server, localdata):
     
     print("join all ...")
 
-def getLiveDataMock(server, localdata):
+def getMockdata():
     with open('./espia/allspydata.json') as json_file:
         data = json.load(json_file)
     localdata = data

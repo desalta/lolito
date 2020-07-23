@@ -49,6 +49,10 @@
             <li class="nav-item" role="presentation">
                 <a class="nav-link" id="team2-tab" data-toggle="tab" href="#CHAOS" role="tab" aria-controls="team2" aria-selected="false">Team 2</a>
             </li>
+
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="analisis-tab" data-toggle="tab" href="#ANALISIS" role="tab" aria-controls="analisis" aria-selected="false">Analisis</a>
+            </li>
         </ul>
 
         <!-- Data -->
@@ -202,6 +206,42 @@
             </div>
 
             {% endfor %}
+
+            <!-- Analisis -->
+            <div class="tab-pane fade team" id="ANALISIS" role="tabpanel" aria-labelledby="analisis-tab">
+                <!-- Titulo -->
+                <table class="table analisis">
+                    <thead>
+                      <tr>
+                        <th scope="col">Pos</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Camp</th>
+                        <th scope="col">Maestría</th>
+                        <th scope="col">KDA</th>
+                        <th scope="col">Partidas</th>
+                        <th scope="col">Enemigos</th>
+                        <th scope="col">Ranked</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for fila in range(analisis|length) %}
+
+                        {% if fila==5 %}
+                        <tr style="height: 35px;"> {% for col in range(8)%} <td> </td> {% endfor %} </tr>
+                        {% endif %}
+
+                        <tr class="analisis_row" id="row_{{fila}}">
+                            {% for col in range(8)%}
+                            <td>{{analisis[fila][col]}}</td>
+                            {% endfor %}
+                        </tr>
+
+                        {% endfor %}
+                    </tbody>
+                </table>
+                    
+
+            </div>
         
         </div>
 
@@ -248,6 +288,27 @@
             image.src = image.src.substring(0, index) + "_0.jpg";
             return true;
         }
+
+        
+        $('.analisis_row').mouseover(function() {
+            $('#'+this.id).addClass("hover")
+            id = parseInt(this.id.split('_')[1]);
+            if (id>4){
+                $('#row_'+(id-5)).addClass("hover")
+            }else{
+                $('#row_'+(id+5)).addClass("hover")
+            }
+            
+        });
+
+        $('.analisis_row').mouseleave(function() {
+            $('#'+this.id).removeClass("hover")
+            if (id>4){
+                $('#row_'+(id-5)).removeClass("hover")
+            }else{
+                $('#row_'+(id+5)).removeClass("hover")
+            }
+        });
     </script>
 
 </body>

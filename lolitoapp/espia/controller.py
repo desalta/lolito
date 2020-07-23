@@ -21,5 +21,8 @@ def getespia(server):
     lang = request.args.get('lang')
     helper.fixData(localdata,lang)
 
+    #Preparar data para analisis
+    analisis = helper.getMapAnalisis(localdata)
+
     #Devolver pagina completa
-    return render_template('espia.html', servers=servers, data=localdata)
+    return render_template('espia.html', servers=servers, data=localdata, analisis=analisis)

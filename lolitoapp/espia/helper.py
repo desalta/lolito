@@ -63,4 +63,49 @@ def fixData(data,lang):
                     champPlayed['wins'] = "{:.0f}%".format(float(champPlayed['wins'])*100.0)
                     champID = getChampId(champPlayed['champ_name'], lang)
                     champPlayed['champ_name_img'] = 'http://ddragon.leagueoflegends.com/cdn/10.14.1/img/champion/{}.png'.format(champID)
-                    
+
+def getMapAnalisis(data):
+    result = {}
+    ids = {'chaos':0,'order':0}
+
+    def getFila(pos,team, ids):
+        if pos is not None and pos != "":
+            val = 0 if pos=="Jg" else None
+            val = 1 if pos=="Top" else val
+            val = 2 if pos=="Mid" else val
+            val = 3 if pos=="Adc" else val
+            val = 4 if pos=="Supp" else val
+            inc = 0 if team=="CHAOS" else 5
+            return val+inc
+        else:
+            if team == "CHAOS":
+                val = ids['chaos']
+                ids['chaos'] += 1
+                return val
+            else:
+                val = ids['order']
+                ids['order'] += 1
+                return val + 5
+
+    for keyTeam in data:
+        for champ in data[keyTeam]:
+            fila = getFila(champ['pos'],keyTeam,ids)
+            avg = champ['data']['avg']['normales']
+            kda = champ['data']['kda']['normales']
+            league = champ['data']['league']
+            best_league = league['best_league']
+            champs = champ['data']['champs']
+
+            result[fila] = {
+                0 : champ['pos'],
+                1 : champ['name'],
+                2 : champ['champ'], #champ name
+                3 : "" if champs['normales'][0]['champ_level']==None else champs['normales'][0]['champ_level'], #maestria
+                4 : "{}/{}/{}".format(kda['kills'],kda['deaths'],kda['assists']), #kda
+                5 : "{} ({})".format(avg['plays'],avg['wins']), #play(wins)
+                6 : league['enemy_avg']['name'], #enemigos
+                7 : best_league['name'] if 'name' in best_league else "", #max league
+                #'7' : 0 #puntaje general
+            }
+
+    return result

@@ -289,7 +289,7 @@ body.wiki {
 
 #wiki table.stats th{
     padding: 5px;
-    background-color: #c38c45;
+    background-color: #424140;
 }
 
 #wiki table.stats tr:hover {
@@ -443,6 +443,29 @@ body.espia {
 #espia .row.champ i{
     padding-top: 2px;
 }
+
+
+/* ************ Tabla Stats*/
+
+
+#espia table.analisis{
+    color : white;
+}
+
+#espia table.analisis td{
+    padding: 5px;
+}
+
+#espia table.analisis th{
+    padding: 5px;
+    background-color: #424140;
+}
+
+#espia table.analisis tr.hover {
+    background-color: #c38c45;
+}
+
+
 
 
 
