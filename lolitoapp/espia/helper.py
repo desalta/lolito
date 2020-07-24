@@ -69,7 +69,7 @@ def getMapAnalisis(data):
     ids = {'chaos':0,'order':0}
 
     def getFila(pos,team, ids):
-        if pos is not None and pos != "":
+        if pos is not None and pos != "" and pos!="NONE":
             val = 0 if pos=="Jg" else None
             val = 1 if pos=="Top" else val
             val = 2 if pos=="Mid" else val
